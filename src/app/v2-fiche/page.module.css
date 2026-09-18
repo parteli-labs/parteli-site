@@ -1,0 +1,695 @@
+/*
+ * V2 — THE PARTS FICHE
+ * The OEM parts catalogue page: an exploded figure keyed to a parts table.
+ * Restrained colour — paper and ink plus one accent, which marks only the
+ * keyed item and the single action.
+ */
+
+.root {
+  --paper: #eceae3;
+  --paper-bright: #f9f8f4;
+  --ink: #15191b;
+  --ink-mid: #5b6265;
+  --ink-faint: #8d9295;
+  --rule: #c6c5bd;
+  --rule-soft: #dcdbd4;
+  --accent: #d5301a;
+
+  --fiche-paper-bright: #f9f8f4;
+  --fiche-accent: #d5301a;
+
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-chivo), system-ui, sans-serif;
+  font-size: 16.5px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.mono {
+  font-family: var(--font-b612mono), ui-monospace, monospace;
+  font-feature-settings: 'tnum' 1;
+}
+
+/* The sheet: the whole page is one catalogue leaf. */
+
+.sheet {
+  width: min(1180px, 100% - 1.5rem);
+  margin-inline: auto;
+  background: var(--paper-bright);
+  border-inline: 1px solid var(--rule);
+  min-height: 100svh;
+}
+
+@media (min-width: 900px) {
+  .sheet {
+    width: min(1180px, 100% - 4rem);
+  }
+}
+
+.pad {
+  padding-inline: clamp(1.1rem, 3.5vw, 3.25rem);
+}
+
+/* ------------------------------------------------------------- header --- */
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.1rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+.markLink {
+  display: block;
+  line-height: 0;
+}
+
+.mark {
+  height: 36px;
+  width: auto;
+}
+
+@media (min-width: 700px) {
+  .mark {
+    height: 44px;
+  }
+}
+
+.headMeta {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+}
+
+.headBack {
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink-faint);
+  padding-bottom: 2px;
+}
+
+.headBack:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+/* A fiche runs a thin rule of sheet metadata under its masthead. */
+
+.strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 2rem;
+  padding-block: 0.55rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.stripItem b {
+  font-weight: 600;
+  color: var(--ink-mid);
+}
+
+/* ---------------------------------------------------------------- hero --- */
+
+.hero {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  padding-block: clamp(2.25rem, 5vw, 4.25rem);
+  border-bottom: 1px solid var(--rule);
+}
+
+@media (min-width: 940px) {
+  .hero {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    align-items: center;
+  }
+}
+
+.h1 {
+  font-size: clamp(2.1rem, 4.6vw, 3.6rem);
+  line-height: 1.02;
+  font-weight: 700;
+  letter-spacing: -0.032em;
+  text-wrap: balance;
+  max-width: 21ch;
+}
+
+.heroSub {
+  margin-top: 1.25rem;
+  max-width: 52ch;
+  color: var(--ink-mid);
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+}
+
+.heroActions {
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* --------------------------------------------------------------- figure --- */
+
+.figWrap {
+  border: 1px solid var(--rule);
+  background: var(--paper-bright);
+}
+
+.figCap {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 0.85rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+}
+
+.figure {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--ink);
+  padding: 0.5rem;
+}
+
+/* The key table under the figure — the three outcomes, keyed. */
+
+.key {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+  border-top: 1px solid var(--rule);
+}
+
+.key th {
+  text-align: left;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding: 0.5rem 0.85rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.key td {
+  padding: 0.75rem 0.85rem;
+  border-bottom: 1px solid var(--rule-soft);
+  vertical-align: top;
+}
+
+.key tr:last-child td {
+  border-bottom: none;
+}
+
+.keyRef {
+  width: 1%;
+  white-space: nowrap;
+  color: var(--ink-mid);
+  font-size: 0.8rem;
+}
+
+.keyName {
+  font-weight: 600;
+  letter-spacing: -0.012em;
+}
+
+.keyNote {
+  color: var(--ink-mid);
+  font-size: 0.87rem;
+  line-height: 1.5;
+  margin-top: 0.2rem;
+  max-width: 46ch;
+}
+
+.keyRowMarked .keyRef,
+.keyRowMarked .keyName {
+  color: var(--accent);
+}
+
+/* -------------------------------------------------------------- button --- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.78rem 1.25rem;
+  background: var(--accent);
+  color: #fdf6f4;
+  border: 1px solid var(--accent);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 150ms, color 150ms;
+}
+
+.btn:hover {
+  background: #b82712;
+  border-color: #b82712;
+}
+
+.btnGhost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.btnGhost:hover {
+  background: var(--ink);
+  color: var(--paper-bright);
+  border-color: var(--ink);
+}
+
+/* ------------------------------------------------------------- section --- */
+
+.section {
+  padding-block: clamp(2.5rem, 5.5vw, 4.5rem);
+  border-bottom: 1px solid var(--rule);
+}
+
+.secHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem 2rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.h2 {
+  font-size: clamp(1.45rem, 2.7vw, 2.15rem);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.028em;
+  max-width: 26ch;
+  text-wrap: balance;
+}
+
+.secKey {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------- product, as FIG. 2 --- */
+
+.plate {
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.plateCap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding: 0.55rem 0.85rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+}
+
+.plateBody {
+  padding: clamp(1rem, 2.5vw, 2rem);
+  display: grid;
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  /* start, not stretch: a panel stretched past its content is a dead void. */
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .plateBody {
+    grid-template-columns: minmax(0, 290px) minmax(0, 1fr);
+  }
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  min-width: 0;
+}
+
+/* Product recreations, in the MVP app's own system. */
+
+.phone {
+  background: #0d1316;
+  border: 1px solid #2a363b;
+  border-radius: 13px;
+  padding: 13px;
+  color: #e9eff0;
+  font-family: var(--font-chivo), sans-serif;
+}
+
+.phoneHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 11px;
+}
+
+.phoneTitle {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.phoneCount,
+.consoleMeta {
+  font-size: 9.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #879499;
+}
+
+.vcard {
+  background: #161f23;
+  border: 1px solid #2a363b;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 9px;
+}
+
+.vcard:last-child {
+  margin-bottom: 0;
+}
+
+.vart {
+  height: 70px;
+  display: grid;
+  place-items: center;
+  background: #1e282d;
+  border-bottom: 1px solid #2a363b;
+}
+
+.vartCrit {
+  background: #37201d;
+}
+
+.vartSvg {
+  width: 118px;
+  color: #5f6e73;
+}
+
+.vartSvgCrit {
+  color: #f05b45;
+}
+
+.vbody {
+  padding: 9px 11px 11px;
+}
+
+.vname {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.vserial {
+  margin-top: 2px;
+  font-size: 9.5px;
+  color: #879499;
+}
+
+.vstate {
+  margin-top: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 8.5px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #879499;
+}
+
+.vstateCrit {
+  color: #f05b45;
+}
+
+.track {
+  margin-top: 5px;
+  height: 5px;
+  border-radius: 3px;
+  background: #090f11;
+  overflow: hidden;
+}
+
+.trackFill {
+  height: 100%;
+  border-radius: 3px;
+  background: #3d4b50;
+}
+
+.trackFillCrit {
+  background: #f05b45;
+}
+
+.trackFillDue {
+  background: #e8a93f;
+}
+
+.vmeter {
+  margin-top: 4px;
+  font-size: 10px;
+  text-align: right;
+}
+
+.console {
+  background: #0d1316;
+  border: 1px solid #2a363b;
+  border-radius: 11px;
+  overflow: hidden;
+  color: #e9eff0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.consoleBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 10px 13px;
+  border-bottom: 1px solid #2a363b;
+  background: #090f11;
+}
+
+.consoleTitle {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.consoleScroll {
+  overflow-x: auto;
+}
+
+.jobTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+}
+
+.jobTable th {
+  text-align: left;
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #5f6e73;
+  padding: 8px 13px;
+  border-bottom: 1px solid #2a363b;
+  white-space: nowrap;
+}
+
+.jobTable td {
+  padding: 10px 13px;
+  border-bottom: 1px solid #1b2429;
+  white-space: nowrap;
+}
+
+.jobTable tr:last-child td {
+  border-bottom: none;
+}
+
+.jobUnit {
+  font-weight: 700;
+}
+
+.jobWork {
+  color: #879499;
+  font-size: 10.5px;
+}
+
+.pill {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pillRun {
+  background: #342b18;
+  color: #e8a93f;
+}
+
+.pillQueue {
+  background: #1e272c;
+  color: #8fa0ab;
+}
+
+.pillDone {
+  background: #172a22;
+  color: #64b98c;
+}
+
+/* -------------------------------------------------------- note block --- */
+/* The manual's NOTE box: the audience statement, set as an advisory. */
+
+.note {
+  border: 1px solid var(--ink);
+  border-left-width: 1px;
+  background: var(--paper);
+  display: grid;
+  gap: 0;
+}
+
+@media (min-width: 880px) {
+  .note {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  }
+}
+
+.noteMark {
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+  border-bottom: 1px solid var(--ink);
+}
+
+@media (min-width: 880px) {
+  .noteMark {
+    border-bottom: none;
+    border-right: 1px solid var(--ink);
+  }
+}
+
+.noteTitle {
+  font-size: clamp(1.4rem, 2.6vw, 2.05rem);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.028em;
+  text-wrap: balance;
+}
+
+.noteBody {
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+  color: var(--ink-mid);
+  max-width: 54ch;
+}
+
+/* ------------------------------------------------------------- order --- */
+
+.order {
+  padding-block: clamp(2.75rem, 6vw, 5rem);
+}
+
+.orderGrid {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: end;
+}
+
+@media (min-width: 860px) {
+  .orderGrid {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+
+.orderTitle {
+  font-size: clamp(1.7rem, 3.6vw, 2.9rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  max-width: 20ch;
+}
+
+.orderText {
+  margin-top: 1rem;
+  max-width: 50ch;
+  color: var(--ink-mid);
+}
+
+.orderNote {
+  margin-top: 0.9rem;
+  font-size: 0.87rem;
+  color: var(--ink-faint);
+}
+
+.orderActions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.orderMail {
+  font-size: 12px;
+  color: var(--ink-mid);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink-faint);
+  padding-bottom: 2px;
+}
+
+.orderMail:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+/* ------------------------------------------------------------ footer --- */
+
+.footer {
+  border-top: 2px solid var(--ink);
+  padding-block: 1.5rem 2.5rem;
+  display: grid;
+  gap: 0.9rem;
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+@media (min-width: 760px) {
+  .footer {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+}
+
+.footerNote {
+  max-width: 62ch;
+  line-height: 1.6;
+}
