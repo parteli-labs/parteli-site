@@ -106,7 +106,7 @@ export async function POST(request: Request) {
       const detail = await res.text().catch(() => '');
       console.error(`[walkthrough] Resend responded ${res.status}: ${detail}`);
       return NextResponse.json(
-        { error: 'We could not send that just now. Try again, or reach us by email.', fallback: true },
+        { error: 'We could not send that just now. Try again.', fallback: true },
         { status: 502 },
       );
     }
@@ -115,7 +115,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error('[walkthrough] send failed:', error);
     return NextResponse.json(
-      { error: 'We could not send that just now. Try again, or reach us by email.', fallback: true },
+      { error: 'We could not send that just now. Try again.', fallback: true },
       { status: 502 },
     );
   }

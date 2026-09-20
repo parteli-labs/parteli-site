@@ -3,7 +3,7 @@ import './globals.css';
 
 const TITLE = 'Parteli — one system for an independent powersports shop';
 const DESCRIPTION =
-  'One system for the work your shop already does: sourcing parts, tracking who is on the clock, getting the invoice out. We are opening a small alpha.';
+  'Parteli is being built for the work your shop already does — sourcing parts, tracking who is on the clock, getting the invoice out. We are opening a small alpha.';
 
 /**
  * `metadataBase` resolves the OG image to an absolute URL, which every scraper

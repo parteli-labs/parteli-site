@@ -36,8 +36,9 @@ Ordered roughly by what blocks a public launch.
       image resolves to an absolute URL. On Vercel production deploys it falls back to
       `VERCEL_PROJECT_PRODUCTION_URL` automatically; locally it is `localhost:3000`.
 - [ ] **Regenerate `public/og.png` if the headline or wordmark changes.** It is a static
-      1200×630 render, not generated at build time. The source template is
-      `og.html` in the session scratchpad; if that is gone, rebuild it from the page.
+      1200×630 render, not generated at build time. The template is `tools/og-template.html`
+      — replace `WORDMARK_SRC` with a data URI of the wordmark, then screenshot it at
+      1200×630. Its line breaks are explicit so the lime phrase never splits.
 - [ ] Consider a spam/rate limit on `/api/walkthrough` beyond the honeypot if it gets
       scraped. Vercel's firewall or a simple IP throttle would do.
 

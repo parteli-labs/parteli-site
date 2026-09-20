@@ -29,7 +29,7 @@ export const promise = 'The parts, the bays and the money — one system.';
  * without committing to a price or claiming it already ships.
  */
 export const subPromise =
-  'One system for the work your shop already does: sourcing parts, tracking who is on the clock, getting the invoice out. We intend to make our money on a subscription — never on a cut of yours.';
+  'Parteli is being built for the work your shop already does — sourcing parts, tracking who is on the clock, getting the invoice out. We intend to make our money on a subscription, never on a cut of yours.';
 
 export const audience = {
   title: 'Built for shops that are not a chain',

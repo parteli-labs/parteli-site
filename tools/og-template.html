@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500&family=Chakra+Petch:ital,wght@1,700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; }
+  body {
+    background: #080906;
+    color: #f3f2ea;
+    font-family: 'Archivo', system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .checker {
+    height: 18px;
+    flex: none;
+    background-image:
+      linear-gradient(45deg, #c8e81f 25%, transparent 25%, transparent 75%, #c8e81f 75%),
+      linear-gradient(45deg, #c8e81f 25%, transparent 25%, transparent 75%, #c8e81f 75%);
+    background-size: 18px 18px;
+    background-position: 0 0, 9px 9px;
+    background-color: #080906;
+  }
+  .checker.red {
+    background-image:
+      linear-gradient(45deg, #ff3417 25%, transparent 25%, transparent 75%, #ff3417 75%),
+      linear-gradient(45deg, #ff3417 25%, transparent 25%, transparent 75%, #ff3417 75%);
+  }
+  .body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    padding: 0 72px;
+  }
+  .left { flex: 1; min-width: 0; }
+  .mark { height: 58px; width: auto; display: block; }
+  h1 {
+    margin-top: 40px;
+    font-family: 'Chakra Petch', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 72px;
+    line-height: 0.94;
+    letter-spacing: -0.028em;
+  }
+  h1 em { font-style: inherit; color: #c8e81f; }
+  .sub {
+    margin-top: 28px;
+    font-size: 22px;
+    line-height: 1.45;
+    color: #9b9d8c;
+    max-width: 30ch;
+  }
+  .plate {
+    width: 340px;
+    flex: none;
+    background: #111309;
+    border: 1px solid #2b2f1c;
+  }
+  .plateTop {
+    display: flex;
+    justify-content: space-between;
+    padding: 11px 16px;
+    background: #c8e81f;
+    color: #0a0b06;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .plateBody {
+    position: relative;
+    height: 190px;
+    display: grid;
+    place-items: center;
+  }
+  .num {
+    position: absolute; inset: 0;
+    display: grid; place-items: center;
+    font-family: 'Chakra Petch', sans-serif;
+    font-style: italic; font-weight: 700;
+    font-size: 170px; line-height: 1;
+    color: #1a1d10;
+  }
+  .machine { position: relative; width: 260px; color: #c8e81f; }
+  .row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 16px; padding: 10px 16px; border-top: 1px solid #2b2f1c;
+  }
+  .rl {
+    font-family: 'Chakra Petch', sans-serif; font-style: italic; font-weight: 700;
+    font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase; color: #c8e81f;
+  }
+  .rv { font-size: 15px; color: #9b9d8c; }
+</style>
+</head>
+<body>
+  <div class="checker"></div>
+  <div class="body">
+    <div class="left">
+      <img class="mark" src="WORDMARK_SRC" alt="Parteli">
+      <h1>The parts,<br>the bays and<br>the money —<br><em>one system</em></h1>
+      <p class="sub">For independent powersports shops.</p>
+    </div>
+
+    <div class="plate">
+      <div class="plateTop"><span>Shop system</span><span>No. 01</span></div>
+      <div class="plateBody">
+        <span class="num">01</span>
+        <svg class="machine" viewBox="0 0 130 62" fill="none" stroke="currentColor"
+             stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="24" cy="42" r="14"/><circle cx="106" cy="42" r="14"/>
+          <circle cx="24" cy="42" r="4"/><circle cx="106" cy="42" r="4"/>
+          <path d="M30 21 L59 19 L75 17 L83 22 L86 27 L70 28 L67 38 L55 38 L54 29 L45 26 Z"/>
+          <path d="M24 42 L55 36"/><path d="M86 27 L106 42"/><path d="M85 24 L89 15"/>
+          <path d="M82 13 L98 16"/><path d="M90 29 L103 26"/>
+          <path d="M69 33 C 78 34 82 30 87 31"/>
+        </svg>
+      </div>
+      <div class="row"><span class="rl">Parts</span><span class="rv">Sourced and priced</span></div>
+      <div class="row"><span class="rl">Bays</span><span class="rv">Who is on the clock</span></div>
+      <div class="row"><span class="rl">Money</span><span class="rv">Ticket to invoice</span></div>
+    </div>
+  </div>
+  <div class="checker red"></div>
+</body>
+</html>
