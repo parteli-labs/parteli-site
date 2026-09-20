@@ -67,8 +67,12 @@ export const cta = {
 
 export const footer = {
   legal: `© ${new Date().getFullYear()} Parteli Labs`,
+  /** For a surface that renders the product interface. */
   disclosure:
     'Interface shown is the product in development, rendered with sample data. Nothing on this page reports a real shop, customer or transaction.',
+  /** For a surface that shows no interface, so there is nothing to caveat as sample. */
+  disclosureNoUi:
+    'Parteli is in development. Nothing on this page reports a real shop, customer or transaction.',
 } as const;
 
 /* ------------------------------------------------------------------ */

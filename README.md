@@ -14,10 +14,11 @@ a different visual world:
 | `/v2-fiche` | The parts fiche — exploded figure keyed to a table |
 | `/v3-workorder` | The repair order — NCR carbon copy, typed entries |
 | `/v4-pitwall` | The pit wall — the service board as a timing board |
-| `/v5-livery` | The livery — race bodywork, the wordmark's own world |
+| `/v5-livery` | **The livery — chosen.** Race bodywork, the wordmark's own world |
 
-Pick one and it gets the finish pass (review, fixes, `DESIGN.md`). The other four come
-down.
+**Draft 05 is the chosen direction**, trimmed to three blocks (hero, audience, close)
+and one action. The other four are kept for comparison until it is locked, then they
+come down. The finish pass (review, fixes, `DESIGN.md`) runs on draft 05.
 
 ## Claim rules
 

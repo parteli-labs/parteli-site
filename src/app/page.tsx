@@ -39,7 +39,7 @@ const DRAFTS = [
     href: '/v5-livery',
     no: '05',
     name: 'The livery',
-    what: 'The wordmark’s own world played straight: race bodywork, number plate, sponsor bands, checkered edge, vinyl lime on black.',
+    what: 'Chosen. The wordmark’s own world played straight: race bodywork, number plate, checkered bands, vinyl lime on black. Trimmed to hero, audience and close.',
     swatches: ['#080906', '#c8e81f', '#ff3417', '#1a1d10'],
   },
 ] as const;
@@ -87,8 +87,8 @@ export default function Index() {
         </nav>
 
         <p className={s.foot}>
-          Pick one and it gets the finish pass — review, fixes, and a written design
-          system. The other four come down.
+          Draft 05 is the chosen direction and has been trimmed to three blocks. The other
+          four are kept here for comparison until it is locked, then they come down.
         </p>
       </div>
     </main>

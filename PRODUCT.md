@@ -79,9 +79,10 @@ product functionality, a blog or docs.
 Part Lock · Margin Capture · Tech Tracker · My Clients · Dealer Console · My Garage · service
 board · job ticket · landed cost · rider price · dealer margin captured.
 
-**Undecided:** whether the consumer brand is spelled "Let's Ryde" (the user's product docs) or
-"Let's Ride" (the business manager's artifacts). Not needed for this surface; resolve before any
-consumer-facing copy ships.
+**Resolved:** the Phase 3 consumer brand is spelled **"Let's Ride"**, not "Let's Ryde". The
+"Ryde" spelling was a pun on the business manager's first name and the user has ruled against it.
+The app repo's `PRODUCT.md` still carries the old spelling and should be corrected when that
+repo is next touched.
 
 ## Brand Commitments
 

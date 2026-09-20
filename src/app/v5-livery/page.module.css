@@ -1,8 +1,11 @@
 /*
  * V5 — THE LIVERY
- * The wordmark's own world, played straight: race bodywork. Number plate, sponsor
- * bands, checkered edge, vinyl lime on black. This is the draft that argues FOR
- * the business manager's identity rather than around it.
+ * The wordmark's own world, played straight: race bodywork. Number plate,
+ * checkered bands, vinyl lime on black.
+ *
+ * Three blocks and one action. With no feature tour to carry the middle, the hero
+ * and the close each take more vertical room than they would on a longer page —
+ * a short page paced like a long one reads as a page with sections missing.
  */
 
 .root {
@@ -10,7 +13,6 @@
   --panel: #111309;
   --panel-2: #1a1d10;
   --line: #2b2f1c;
-  --plate: #f3f2ea;
   --plate-ink: #0a0b06;
 
   --text: #f3f2ea;
@@ -19,12 +21,7 @@
 
   /* Sampled from the wordmark itself, tamed one step for screen. */
   --lime: #c8e81f;
-  --lime-deep: #262b06;
   --red: #ff3417;
-  --red-deep: #2e0d06;
-
-  --ok: #7bd968;
-  --warn: #f0b23c;
 
   background: var(--black);
   color: var(--text);
@@ -100,7 +97,7 @@
 
 @media (min-width: 700px) {
   .mark {
-    height: 44px;
+    height: 52px;
   }
 }
 
@@ -127,25 +124,24 @@
 }
 
 /* ---------------------------------------------------------------- hero --- */
-/* Bodywork: the number plate carries the mark, the panel carries the line. */
+/* Bodywork: the number plate carries the machine, the panel carries the line. */
 
 .hero {
-  position: relative;
-  padding-block: clamp(2.5rem, 6vw, 5rem) clamp(2.5rem, 6vw, 4.5rem);
+  padding-block: clamp(3rem, 8vw, 6.5rem) clamp(3rem, 8vw, 6rem);
   display: grid;
-  gap: clamp(2rem, 4vw, 3.5rem);
+  gap: clamp(2.25rem, 5vw, 4rem);
   align-items: center;
 }
 
 @media (min-width: 960px) {
   .hero {
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   }
 }
 
 .h1 {
-  font-size: clamp(2.3rem, 6vw, 4.8rem);
-  line-height: 0.95;
+  font-size: clamp(2.5rem, 6.4vw, 5.2rem);
+  line-height: 0.94;
   letter-spacing: -0.028em;
   max-width: 16ch;
   text-wrap: balance;
@@ -157,14 +153,14 @@
 }
 
 .heroSub {
-  margin-top: clamp(1.25rem, 2.4vw, 1.75rem);
+  margin-top: clamp(1.4rem, 2.6vw, 2rem);
   max-width: 54ch;
   color: var(--dim);
-  font-size: clamp(1rem, 1.25vw, 1.1rem);
+  font-size: clamp(1.02rem, 1.3vw, 1.15rem);
 }
 
 .heroActions {
-  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  margin-top: clamp(1.75rem, 3.2vw, 2.5rem);
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
@@ -195,10 +191,10 @@
 
 .plateBody {
   position: relative;
-  padding: clamp(1.5rem, 4vw, 2.75rem) clamp(1rem, 3vw, 2rem);
+  padding: clamp(1.75rem, 4.5vw, 3.25rem) clamp(1rem, 3vw, 2rem);
   display: grid;
   place-items: center;
-  min-height: 220px;
+  min-height: 250px;
 }
 
 .plateNumber {
@@ -209,7 +205,7 @@
   font-family: var(--font-chakra), sans-serif;
   font-style: italic;
   font-weight: 700;
-  font-size: clamp(9rem, 22vw, 15rem);
+  font-size: clamp(9rem, 22vw, 16rem);
   line-height: 1;
   color: var(--panel-2);
   user-select: none;
@@ -218,7 +214,7 @@
 
 .plateMachine {
   position: relative;
-  width: min(100%, 320px);
+  width: min(100%, 340px);
   color: var(--lime);
 }
 
@@ -242,21 +238,20 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  min-height: 48px;
-  padding: 0 1.5rem;
+  min-height: 50px;
   background: var(--lime);
   color: var(--plate-ink);
   border: 2px solid var(--lime);
   font-family: var(--font-chakra), sans-serif;
   font-style: italic;
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
   clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
-  padding-inline: 1.9rem;
+  padding-inline: 2rem;
   transition: background 140ms, color 140ms, border-color 140ms;
 }
 
@@ -265,340 +260,19 @@
   border-color: var(--text);
 }
 
-.btnGhost {
-  background: transparent;
-  color: var(--text);
-  border-color: var(--line);
-}
-
-.btnGhost:hover {
-  background: transparent;
-  color: var(--lime);
-  border-color: var(--lime);
-}
-
-/* ------------------------------------------------------- sponsor bands --- */
-/* The outcomes ride as decal bands across the bodywork, not as cards. */
-
-.bands {
-  border-top: 1px solid var(--line);
-}
-
-.band {
-  display: grid;
-  grid-template-columns: 3.25rem minmax(0, 1fr);
-  gap: 0.5rem 1.5rem;
-  align-items: start;
-  padding-block: clamp(1.4rem, 3vw, 2.2rem);
-  border-bottom: 1px solid var(--line);
-  position: relative;
-}
-
-@media (min-width: 880px) {
-  .band {
-    grid-template-columns: 3.25rem minmax(0, 18rem) minmax(0, 1fr);
-    align-items: baseline;
-  }
-}
-
-.bandNo {
-  font-family: var(--font-chakra), sans-serif;
-  font-style: italic;
-  font-weight: 700;
-  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
-  line-height: 1;
-  color: var(--lime);
-}
-
-.bandTitle {
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  text-wrap: balance;
-}
-
-.bandBody {
-  color: var(--dim);
-  max-width: 52ch;
-  grid-column: 2 / -1;
-}
-
-@media (min-width: 880px) {
-  .bandBody {
-    grid-column: auto;
-  }
-}
-
-/* ------------------------------------------------------------ section --- */
-
-.section {
-  padding-block: clamp(2.75rem, 5.5vw, 4.5rem);
-}
-
-.secHead {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.6rem 2rem;
-  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
-}
-
-.h2 {
-  font-size: clamp(1.7rem, 3.4vw, 2.8rem);
-  line-height: 1.02;
-  letter-spacing: -0.026em;
-  max-width: 22ch;
-  text-wrap: balance;
-}
-
-.secKey {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--faint);
-  white-space: nowrap;
-}
-
-/* ------------------------------------------------------------ product --- */
-
-.screens {
-  display: grid;
-  gap: clamp(1rem, 2.5vw, 1.75rem);
-  /* start, not stretch: a panel stretched past its content is a dead void. */
-  align-items: start;
-}
-
-@media (min-width: 900px) {
-  .screens {
-    grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
-  }
-}
-
-.phone {
-  background: #0d1316;
-  border: 1px solid #2a363b;
-  border-radius: 13px;
-  padding: 14px;
-  color: #e9eff0;
-}
-
-.phoneHead {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  padding-bottom: 12px;
-}
-
-.phoneTitle {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-.phoneCount,
-.consoleMeta {
-  font-size: 9.5px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #879499;
-}
-
-.vcard {
-  background: #161f23;
-  border: 1px solid #2a363b;
-  border-radius: 11px;
-  overflow: hidden;
-  margin-bottom: 10px;
-}
-
-.vcard:last-child {
-  margin-bottom: 0;
-}
-
-.vart {
-  height: 74px;
-  display: grid;
-  place-items: center;
-  background: #1e282d;
-  border-bottom: 1px solid #2a363b;
-}
-
-.vartCrit {
-  background: #37201d;
-}
-
-.vartSvg {
-  width: 124px;
-  color: #5f6e73;
-}
-
-.vartSvgCrit {
-  color: #f05b45;
-}
-
-.vbody {
-  padding: 10px 12px 12px;
-}
-
-.vname {
-  font-size: 13.5px;
-  font-weight: 700;
-}
-
-.vserial {
-  margin-top: 2px;
-  font-size: 9.5px;
-  color: #879499;
-}
-
-.vstate {
-  margin-top: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-  font-size: 8.5px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: #879499;
-}
-
-.vstateCrit {
-  color: #f05b45;
-}
-
-.track {
-  margin-top: 5px;
-  height: 6px;
-  border-radius: 3px;
-  background: #090f11;
-  overflow: hidden;
-}
-
-.trackFill {
-  height: 100%;
-  border-radius: 3px;
-  background: #3d4b50;
-}
-
-.trackFillCrit {
-  background: #f05b45;
-}
-
-.trackFillDue {
-  background: #e8a93f;
-}
-
-.vmeter {
-  margin-top: 4px;
-  font-size: 10.5px;
-  text-align: right;
-}
-
-.console {
-  background: #0d1316;
-  border: 1px solid #2a363b;
-  border-radius: 13px;
-  overflow: hidden;
-  color: #e9eff0;
-  display: flex;
-  flex-direction: column;
-}
-
-.consoleBar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 11px 14px;
-  border-bottom: 1px solid #2a363b;
-  background: #090f11;
-}
-
-.consoleTitle {
-  font-size: 12.5px;
-  font-weight: 700;
-}
-
-.consoleScroll {
-  overflow-x: auto;
-}
-
-.jobTable {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 12px;
-}
-
-.jobTable th {
-  text-align: left;
-  font-size: 8.5px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #5f6e73;
-  padding: 9px 14px;
-  border-bottom: 1px solid #2a363b;
-  white-space: nowrap;
-}
-
-.jobTable td {
-  padding: 11px 14px;
-  border-bottom: 1px solid #1b2429;
-  white-space: nowrap;
-}
-
-.jobTable tr:last-child td {
-  border-bottom: none;
-}
-
-.jobUnit {
-  font-weight: 700;
-}
-
-.jobWork {
-  color: #879499;
-  font-size: 10.5px;
-}
-
-.pill {
-  display: inline-block;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 8.5px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.pillRun {
-  background: #342b18;
-  color: #e8a93f;
-}
-
-.pillQueue {
-  background: #1e272c;
-  color: #8fa0ab;
-}
-
-.pillDone {
-  background: #172a22;
-  color: #64b98c;
-}
-
 /* ----------------------------------------------------------- audience --- */
-/* A decal panel: lime ground, black lettering. The loudest quiet moment. */
+/* A decal panel: lime ground, black lettering. The page's one colour field. */
+
+.decalWrap {
+  padding-block: clamp(3rem, 7vw, 5.5rem) clamp(2rem, 4vw, 3rem);
+}
 
 .decal {
   background: var(--lime);
   color: var(--plate-ink);
-  padding: clamp(1.75rem, 4vw, 3.25rem) clamp(1.25rem, 3vw, 2.75rem);
+  padding: clamp(2rem, 4.5vw, 3.75rem) clamp(1.25rem, 3vw, 3rem);
   display: grid;
-  gap: clamp(1rem, 2.5vw, 2.5rem);
+  gap: clamp(1.1rem, 2.5vw, 2.5rem);
 }
 
 @media (min-width: 880px) {
@@ -609,8 +283,8 @@
 }
 
 .decalTitle {
-  font-size: clamp(1.7rem, 3.6vw, 2.9rem);
-  line-height: 1.0;
+  font-size: clamp(1.8rem, 3.8vw, 3.1rem);
+  line-height: 1;
   letter-spacing: -0.028em;
   text-wrap: balance;
 }
@@ -618,15 +292,15 @@
 .decalBody {
   color: #2c3107;
   max-width: 52ch;
-  font-size: clamp(1rem, 1.25vw, 1.08rem);
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
 }
 
 /* ---------------------------------------------------------------- cta --- */
 
 .cta {
-  padding-block: clamp(3rem, 7vw, 5.5rem);
+  padding-block: clamp(2rem, 4vw, 3rem) clamp(3rem, 6vw, 4.5rem);
   display: grid;
-  gap: clamp(1.5rem, 3vw, 3rem);
+  gap: clamp(1.75rem, 3.5vw, 3.5rem);
   align-items: end;
 }
 
@@ -637,7 +311,7 @@
 }
 
 .ctaTitle {
-  font-size: clamp(1.9rem, 4.2vw, 3.3rem);
+  font-size: clamp(2rem, 4.4vw, 3.5rem);
   line-height: 0.98;
   letter-spacing: -0.03em;
   text-wrap: balance;
@@ -645,9 +319,10 @@
 }
 
 .ctaText {
-  margin-top: 1rem;
+  margin-top: 1.1rem;
   max-width: 50ch;
   color: var(--dim);
+  font-size: clamp(1rem, 1.2vw, 1.08rem);
 }
 
 .ctaNote {
@@ -660,7 +335,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.85rem;
+  gap: 0.9rem;
 }
 
 .ctaMail {

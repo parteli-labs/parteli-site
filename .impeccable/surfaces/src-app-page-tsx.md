@@ -56,10 +56,23 @@ Per draft: V1's scannable Code 39 barcodes; V2's exploded assembly with ghosted
 component; V3's headline typed into DESCRIPTION OF WORK plus the rubber stamp; V4's
 live-pulse on the running job; V5's number plate behind the machine.
 
+## Chosen
+
+**`/v5-livery`** — the race livery. Chosen by the user over the assigned candidate 5,
+which the roll permits: a user-pinned direction beats the roll. Reason given: the
+checkered bands match the wordmark.
+
+Trimmed on selection to three blocks and one action — hero, the "not a chain" decal
+panel, and the close. The outcomes list and the product-screen section were cut at the
+user's direction; both are recoverable from commit `08e2503`.
+
+Consequence to watch: the product screens were the surface's only proof, so the page now
+asserts rather than demonstrates. The machine line art in the number plate is all that
+remains of the product. Flagged to the user; they chose the teaser.
+
 ## Unresolved
 
-- Which draft becomes the site. The other four come down.
+- Locking draft 05, after which the other four routes and the index come down.
 - Whether the wordmark is locked (currently a candidate) and whether it should be
   vectorised — it ships as a 1741×824 PNG.
-- "Let's Ryde" vs "Let's Ride" spelling, before any consumer-facing copy.
 - Whether a form backend replaces the mailto.
