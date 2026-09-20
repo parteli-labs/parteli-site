@@ -3,7 +3,7 @@ import { Archivo, Chakra_Petch, JetBrains_Mono } from 'next/font/google';
 
 import { Machine } from '@/components/machine';
 import { WalkthroughForm } from '@/components/walkthrough-form';
-import { audience, brand, cta, footer, plateRows, subPromise } from '@/content/site';
+import { audience, brand, cta, footer, plateRows, promise, subPromise } from '@/content/site';
 
 import s from './page.module.css';
 
@@ -78,7 +78,12 @@ export default function Home() {
         <section className={s.hero}>
           <div>
             <h1 className={`${s.h1} ${s.display}`}>
-              The parts, the bays and the money — <em>one system</em>
+              {promise.lines.map((line) => (
+                <span key={line} className={s.h1Line}>
+                  {line}
+                </span>
+              ))}
+              <em className={s.h1Line}>{promise.accent}</em>
             </h1>
             <p className={s.heroSub}>{subPromise}</p>
             <div className={s.heroActions}>
@@ -97,7 +102,11 @@ export default function Home() {
               <span className={s.plateNumber} aria-hidden="true">
                 01
               </span>
-              <Machine kind="dirt" strokeWidth={1.6} className={s.plateMachine} />
+              <div className={s.plateStack}>
+                <Machine kind="dirt" strokeWidth={1.6} className={s.plateMachine} />
+                <Machine kind="road" strokeWidth={1.6} className={s.plateMachine} />
+                <Machine kind="utv" strokeWidth={1.6} className={s.plateMachine} />
+              </div>
             </div>
             <dl className={s.plateRows}>
               {plateRows.map((row) => (

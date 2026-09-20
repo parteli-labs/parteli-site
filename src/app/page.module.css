@@ -22,6 +22,10 @@
   /* Sampled from the wordmark itself, tamed one step for screen. */
   --lime: #c8e81f;
   --red: #ff3417;
+  /* The pack recedes: lead machine at full lime, the two behind it stepped down.
+     Tonal depth, not shadow — this world has no shadows. */
+  --lime-mid: #7d8f16;
+  --lime-deep: #47500f;
 
   background: var(--black);
   color: var(--text);
@@ -136,11 +140,15 @@
 }
 
 .h1 {
-  font-size: clamp(2.5rem, 6.4vw, 5.2rem);
-  line-height: 0.94;
-  letter-spacing: -0.028em;
-  max-width: 16ch;
-  text-wrap: balance;
+  font-size: clamp(2.6rem, 7vw, 5.6rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+}
+
+/* Explicit lines, so "Many riders / Many dealers / One system" never rewraps into
+   a shape the accent no longer lands on. */
+.h1Line {
+  display: block;
 }
 
 .h1 em {
@@ -187,10 +195,10 @@
 
 .plateBody {
   position: relative;
-  padding: clamp(1.75rem, 4.5vw, 3.25rem) clamp(1rem, 3vw, 2rem);
+  padding: clamp(1.25rem, 3vw, 2rem) clamp(1rem, 2.5vw, 1.5rem);
   display: grid;
   place-items: center;
-  min-height: 200px;
+  min-height: 210px;
 }
 
 .plateNumber {
@@ -208,10 +216,37 @@
   pointer-events: none;
 }
 
-.plateMachine {
+.plateStack {
   position: relative;
-  width: min(100%, 340px);
+  display: grid;
+  width: 100%;
+  justify-items: center;
+}
+
+.plateMachine {
+  width: min(92%, 272px);
+}
+
+/* Staggered and overlapped, so three machines read as a pack rather than a list.
+   Each step back loses a tone; nothing here uses a shadow. */
+.plateMachine:nth-child(1) {
   color: var(--lime);
+  justify-self: start;
+  z-index: 3;
+}
+
+.plateMachine:nth-child(2) {
+  color: var(--lime-mid);
+  justify-self: end;
+  margin-top: -11%;
+  z-index: 2;
+}
+
+.plateMachine:nth-child(3) {
+  color: var(--lime-deep);
+  justify-self: start;
+  margin-top: -11%;
+  z-index: 1;
 }
 
 /* The headline's three nouns as plate rows — the fold's evidence, without a claim. */

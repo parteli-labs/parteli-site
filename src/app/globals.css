@@ -1,6 +1,15 @@
+@import 'tailwindcss';
+
 /*
- * Reset only. Each draft route owns its own visual world in a CSS module;
- * nothing that decides colour, type or texture belongs in this file.
+ * Tailwind is imported above so utilities are available. Its preflight lands in
+ * `@layer base`, and everything below plus every CSS Module in this project is
+ * unlayered — unlayered rules beat layered ones regardless of source order, so the
+ * page's own system always wins over preflight. That ordering is the whole reason
+ * adding Tailwind here is visually inert.
+ *
+ * The reset below predates the import and is kept deliberately: it is narrower than
+ * preflight in the places this project cares about (focus-visible, reduced motion,
+ * `100svh`), and removing it would silently hand those decisions to Tailwind.
  */
 
 *,

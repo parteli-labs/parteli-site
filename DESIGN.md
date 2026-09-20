@@ -15,13 +15,15 @@ colors:
   decal-ink: "#2c3107"
   error-ink: "#ffb3a3"
   line-hover: "#464b2e"
+  lime-mid: "#7d8f16"
+  lime-deep: "#47500f"
 typography:
   display:
     fontFamily: "Chakra Petch, Archivo, sans-serif"
-    fontSize: "clamp(2.5rem, 6.4vw, 5.2rem)"
+    fontSize: "clamp(2.6rem, 7vw, 5.6rem)"
     fontWeight: 700
-    lineHeight: 0.94
-    letterSpacing: "-0.028em"
+    lineHeight: 0.92
+    letterSpacing: "-0.03em"
   headline:
     fontFamily: "Chakra Petch, Archivo, sans-serif"
     fontSize: "clamp(2rem, 4.4vw, 3.5rem)"
@@ -562,6 +564,33 @@ colours are `#C3FE06` and `#FF2200`; the screen palette is the tamed step down f
 - **Don't** add a second authored animation without deciding what the first one costs. One moment is
   the budget.
 - **Don't** ship raster art for new elements. The wordmark PNG is an open item, not a precedent.
+
+## The pack
+
+The hero plate carries three machines, not one, because the lead line reads "Many riders."
+They are the same inline-SVG geometry at three tones, staggered left/right/left and
+overlapped by 11%:
+
+| Position | Token | Role |
+|---|---|---|
+| Front | `lime` `#c8e81f` | The lead machine, full accent |
+| Middle | `lime-mid` `#7d8f16` | One step back |
+| Rear | `lime-deep` `#47500f` | Two steps back |
+
+**This is the only depth in the system, and it is tonal.** There are no shadows anywhere on
+the page and this does not introduce one — recession is carried by the stroke colour alone,
+which is why it survives the no-shadow rule. If a fourth machine is ever added, it needs a
+fourth tone, not an opacity: opacity on a stroke over the panel ground reads as a different
+grey than the token ramp and breaks the recession.
+
+The ghost numeral behind the pack stays `01`. It is doing double duty — a race number, and
+the "One system" the accent line names — so it should not be pluralised or removed when the
+pack grows.
+
+The plate's rows (Parts / Bays / Money) deliberately do **not** restate the headline. The
+lead line says who the system is for; the rows say what it does. When the headline was still
+"The parts, the bays and the money" those rows were an echo; they stopped being one when the
+headline changed, and they should not be re-synced to it.
 
 ## Open
 

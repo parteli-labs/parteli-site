@@ -29,8 +29,12 @@ shipped code.
    here. They must never be served a separate watered-down story — the dealer pitch *is* the
    investor proof.
 
-This site is not for riders. The consumer marketplace is a later phase and is not this surface's
-job.
+The site does not sell to riders and has no rider-facing action — the consumer marketplace is a
+later phase. But as of 2026-09-19 the hero names the network rather than the toolset ("Many
+riders / Many dealers / One system"), so riders appear on the page as one side of what the
+platform connects. That is a positioning choice by the user, and it is consistent with the
+dealer-first sequencing below: demand is routed back to platform dealers, not competed with.
+The page still asks a dealer for a conversation and asks a rider for nothing.
 
 ## Product Purpose
 
@@ -75,7 +79,8 @@ product functionality, a blog or docs.
 - **No named partners.** Cycle Works Red Deer and every other dealer stays unnamed. No logos, no
   "trusted by", no customer count.
 - **No market or geography framing as a claim.** The Alberta focus and the dealer-consolidation
-  thesis are not asserted on this page.
+  thesis are not asserted on this page. "Many riders / Many dealers" describes what the platform
+  connects, not a count of anyone currently using it — it must never acquire a number.
 - **Outcomes, not mechanism.** The page describes what a dealer gets — margin kept, parts sourced
   faster, the shop's work visible in one place. It does not explain or demonstrate the landed-cost
   ranking that makes it work. The wedge stays unpublished.

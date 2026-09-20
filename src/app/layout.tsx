@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
-const TITLE = 'Parteli — one system for an independent powersports shop';
+const TITLE = 'Parteli — many riders, many dealers, one system';
 const DESCRIPTION =
-  'Parteli is being built for the work your shop already does — sourcing parts, tracking who is on the clock, getting the invoice out. We are opening a small alpha.';
+  'Parteli is being built for the work your shop already does — sourcing parts, tracking who is on the clock, getting the invoice out. We are planning a small alpha.';
 
 /**
  * `metadataBase` resolves the OG image to an absolute URL, which every scraper

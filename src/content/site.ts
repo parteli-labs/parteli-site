@@ -18,8 +18,16 @@ export const brand = {
   wordmark: '/brand/parteli-wordmark.png',
 } as const;
 
-/** One line, no mechanism. What a shop owner gets. */
-export const promise = 'The parts, the bays and the money — one system.';
+/**
+ * The hero lead, as explicit lines. The last one is accented.
+ * It names the network rather than the toolset: many of each side, one place they
+ * meet. `plateRows` below carries what the system actually does, so the plate adds
+ * to this line instead of restating it.
+ */
+export const promise = {
+  lines: ['Many riders', 'Many dealers'],
+  accent: 'One system',
+} as const;
 
 /**
  * Deliberately not present-tense about capability: the footer says the product is in
@@ -37,7 +45,7 @@ export const audience = {
 } as const;
 
 export const cta = {
-  heading: 'We are opening a small alpha',
+  heading: 'We are planning a small alpha',
   body: 'A short trial with a limited number of shops, run directly with us. If your shop is a fit, we would rather talk than send you a deck.',
   action: 'Request a walkthrough',
   email: 'hello@parteli.com',

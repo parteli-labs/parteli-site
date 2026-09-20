@@ -4,19 +4,17 @@ Ordered roughly by what blocks a public launch.
 
 ## Before this is public
 
-- [ ] **Set `RESEND_API_KEY`.** Copy `.env.example` → `.env.local` and fill it in, then add
-      the same variable in Vercel → Project → Settings → Environment Variables. Without it
-      the form returns 503 and falls back to the `mailto:` link, which is safe but not the
-      intended path. **Do not commit the key or paste it into a chat.**
-- [ ] **Verify a sending domain in Resend** and set `CONTACT_FROM_EMAIL` to an address on
-      it. The default `onboarding@resend.dev` only delivers to the address that owns the
-      Resend account — fine for testing, silently useless in production.
-- [ ] **Set `CONTACT_TO_EMAIL`** to wherever requests should actually land. Defaults to
-      `hello@parteli.com`; confirm that mailbox exists and someone reads it.
+- [ ] **Send one real test request through the deployed form.** Cam set the Resend env vars
+      on 2026-09-19; nothing in this repo can confirm they are correct. Submit the live form
+      once and confirm the mail arrives. If it does not, the two usual causes are
+      `CONTACT_FROM_EMAIL` still on `onboarding@resend.dev` (which only delivers to the
+      address owning the Resend account) or `CONTACT_TO_EMAIL` pointing at a mailbox that
+      does not exist. A 503 in the browser means the key is not reaching the function;
+      a 502 means Resend rejected it, and the reason is in the Vercel function log.
+- [ ] **Confirm `hello@parteli.com` is a real, monitored mailbox.** It is `CONTACT_TO_EMAIL`'s
+      default and the address the form shows as its fallback.
 - [ ] **Decide on indexing.** `src/app/layout.tsx` currently sets `robots: { index: false }`.
       That is deliberate for a pre-launch page — remove it when you want to be found.
-- [ ] **Confirm `hello@parteli.com` is real.** It is used as the mailto fallback in the form
-      error state and would be visible to a dealer if the API is down.
 
 ## Brand
 
@@ -41,15 +39,6 @@ Ordered roughly by what blocks a public launch.
       1200×630. Its line breaks are explicit so the lime phrase never splits.
 - [ ] Consider a spam/rate limit on `/api/walkthrough` beyond the honeypot if it gets
       scraped. Vercel's firewall or a simple IP throttle would do.
-
-## Housekeeping
-
-- [ ] **Decide what to do about Tailwind.** `tailwindcss` + `@tailwindcss/postcss` are
-      installed and the PostCSS plugin is configured, but `globals.css` never imports
-      Tailwind, so no utilities are generated and the dependency is unreachable dead
-      weight. Either remove both packages and the PostCSS plugin, or add
-      `@import "tailwindcss";` to `globals.css` if you want utilities available
-      alongside the CSS Modules. Left as your call rather than removed unilaterally.
 
 ## Cross-repo
 
