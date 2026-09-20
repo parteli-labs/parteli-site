@@ -1,7 +1,7 @@
 /*
  * V5 — THE LIVERY
- * The wordmark's own world, played straight: race bodywork. Number plate,
- * checkered bands, vinyl lime on black.
+ * The wordmark's own world, played straight: race bodywork. Checkered bands,
+ * a pack of machines in the open, vinyl lime on black.
  *
  * Three blocks and one action. With no feature tour to carry the middle, the hero
  * and the close each take more vertical room than they would on a longer page —
@@ -124,7 +124,7 @@
 }
 
 /* ---------------------------------------------------------------- hero --- */
-/* Bodywork: the number plate carries the machine, the panel carries the line. */
+/* Bodywork: the line on the left, the pack on the right, nothing framing either. */
 
 .hero {
   padding-block: clamp(3rem, 8vw, 6.5rem) clamp(3rem, 8vw, 6rem);
@@ -139,16 +139,32 @@
   }
 }
 
+/*
+ * Size is load-bearing here, not taste. Each line is `nowrap`, so the ramp is what
+ * stops "Many dealers" — the longest line — from overflowing its column. Two ramps,
+ * because the column is the viewport below 960px and roughly half of it above.
+ * Both are tuned to keep ≥15% slack at every width from 320 to 1920; changing either
+ * one without re-measuring will push the longest line off the side of the page.
+ */
 .h1 {
-  font-size: clamp(2.6rem, 7vw, 5.6rem);
+  font-size: clamp(2rem, 10.2vw, 5.6rem);
   line-height: 0.92;
   letter-spacing: -0.03em;
 }
 
+@media (min-width: 960px) {
+  .h1 {
+    font-size: clamp(2.6rem, 5.8vw, 5.1rem);
+  }
+}
+
 /* Explicit lines, so "Many riders / Many dealers / One system" never rewraps into
-   a shape the accent no longer lands on. */
+   a shape the accent no longer lands on. `nowrap` is the guarantee: the size ramp
+   below is chosen so the longest line ("Many dealers") still fits its column at every
+   width, and the ramp and this rule have to be changed together. */
 .h1Line {
   display: block;
+  white-space: nowrap;
 }
 
 .h1 em {
@@ -170,135 +186,38 @@
   gap: 0.8rem;
 }
 
-/* The number plate: a real race-bodywork device carrying the machine. */
+/* The pack, in the open. No panel, no border, no ground of its own — three machines
+   staggered on the bodywork, stepping back through two tones. Tonal depth only;
+   this world has no shadows. A fourth machine needs a fourth tone, not an opacity. */
 
-.plateCard {
-  position: relative;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  overflow: hidden;
-}
-
-.plateTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.65rem 1rem;
-  background: var(--lime);
-  color: var(--plate-ink);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.plateBody {
-  position: relative;
-  padding: clamp(1.25rem, 3vw, 2rem) clamp(1rem, 2.5vw, 1.5rem);
-  display: grid;
-  place-items: center;
-  min-height: 210px;
-}
-
-.plateNumber {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-family: var(--font-chakra), sans-serif;
-  font-style: italic;
-  font-weight: 700;
-  font-size: clamp(9rem, 22vw, 16rem);
-  line-height: 1;
-  color: var(--panel-2);
-  user-select: none;
-  pointer-events: none;
-}
-
-.plateStack {
-  position: relative;
+.pack {
   display: grid;
   width: 100%;
   justify-items: center;
 }
 
-.plateMachine {
-  width: min(92%, 272px);
+.packMachine {
+  width: min(100%, 372px);
 }
 
-/* Staggered and overlapped, so three machines read as a pack rather than a list.
-   Each step back loses a tone; nothing here uses a shadow. */
-.plateMachine:nth-child(1) {
+.packMachine:nth-child(1) {
   color: var(--lime);
   justify-self: start;
   z-index: 3;
 }
 
-.plateMachine:nth-child(2) {
+.packMachine:nth-child(2) {
   color: var(--lime-mid);
   justify-self: end;
   margin-top: -11%;
   z-index: 2;
 }
 
-.plateMachine:nth-child(3) {
+.packMachine:nth-child(3) {
   color: var(--lime-deep);
   justify-self: start;
   margin-top: -11%;
   z-index: 1;
-}
-
-/* The headline's three nouns as plate rows — the fold's evidence, without a claim. */
-
-.plateRows {
-  margin: 0;
-  border-top: 1px solid var(--line);
-}
-
-.plateRow {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.6rem 1rem;
-  border-bottom: 1px solid var(--line);
-}
-
-.plateRow:last-child {
-  border-bottom: none;
-}
-
-.plateRowLabel {
-  font-family: var(--font-chakra), sans-serif;
-  font-style: italic;
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--lime);
-}
-
-.plateRowValue {
-  margin: 0;
-  font-size: 12.5px;
-  letter-spacing: 0.02em;
-  color: var(--dim);
-  text-align: right;
-}
-
-/* Sunk ground and a centred line, so this reads as the plate's foot rather than a
-   fourth spec row with a missing value. */
-.plateFoot {
-  padding: 0.6rem 1rem;
-  border-top: 1px solid var(--line);
-  background: var(--black);
-  text-align: center;
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--faint);
 }
 
 /* -------------------------------------------------------------- button --- */

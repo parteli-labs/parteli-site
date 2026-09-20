@@ -3,7 +3,7 @@ import { Archivo, Chakra_Petch, JetBrains_Mono } from 'next/font/google';
 
 import { Machine } from '@/components/machine';
 import { WalkthroughForm } from '@/components/walkthrough-form';
-import { audience, brand, cta, footer, plateRows, promise, subPromise } from '@/content/site';
+import { audience, brand, cta, footer, promise, subPromise } from '@/content/site';
 
 import s from './page.module.css';
 
@@ -37,7 +37,7 @@ export default function Home() {
       {/*
         THESIS: The wordmark is already a race decal, so this page stops treating
           that as a problem and builds the bodywork it belongs on — checkered bands,
-          number plate, vinyl lime on black. It refuses the neutral-SaaS arrangement
+          a pack of machines, vinyl lime on black. It refuses the neutral-SaaS arrangement
           that would sand the mark down to fit, and it refuses the feature-tour
           arrangement: three blocks, one action, nothing else.
         OWN-WORLD: Black bodywork (#080906) with panels #111309 and #1a1d10; the
@@ -50,9 +50,10 @@ export default function Home() {
         STORY: A shop owner sees a brand that looks like the machines on their floor,
           learns in one line what it runs and who it is for, and asks for a walkthrough.
         FIRST VIEWPORT: Lime checker band across the top, topbar, then a two-column
-          split — headline at up to 5.2rem in 16ch with one lime phrase, the qualifier
-          and the single slant-cut lime action on the left; on the right the number
-          plate, a machine in lime line art over an oversize italic race number.
+          split — the lead in three fixed lines at up to 5.6rem, the last one lime, over
+          the qualifier and the single slant-cut lime action; on the right three machines
+          in line art, staggered and overlapped, stepping back through two tones, sitting
+          directly on the ground with no panel around them.
         FORM: Race livery / decal kit — the brief's own literal reading, spent as the
           single candidate it is allowed. Candidate 7 of the grounded list; chosen by
           the user over the assigned candidate 5; seed key 173c3e44.
@@ -93,33 +94,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={s.plateCard}>
-            <div className={s.plateTop}>
-              <span>Shop system</span>
-              <span className={s.mono}>No. 01</span>
-            </div>
-            <div className={s.plateBody}>
-              <span className={s.plateNumber} aria-hidden="true">
-                01
-              </span>
-              <div className={s.plateStack}>
-                <Machine kind="dirt" strokeWidth={1.6} className={s.plateMachine} />
-                <Machine kind="road" strokeWidth={1.6} className={s.plateMachine} />
-                <Machine kind="utv" strokeWidth={1.6} className={s.plateMachine} />
-              </div>
-            </div>
-            <dl className={s.plateRows}>
-              {plateRows.map((row) => (
-                <div key={row.key} className={s.plateRow}>
-                  <dt className={s.plateRowLabel}>{row.label}</dt>
-                  <dd className={s.plateRowValue}>{row.value}</dd>
-                </div>
-              ))}
-            </dl>
-
-            <div className={s.plateFoot}>
-              <span>Independent powersports dealers</span>
-            </div>
+          {/* No panel, no plate: the pack sits directly on the bodywork. */}
+          <div className={s.pack}>
+            <Machine kind="dirt" strokeWidth={1.6} className={s.packMachine} />
+            <Machine kind="road" strokeWidth={1.6} className={s.packMachine} />
+            <Machine kind="utv" strokeWidth={1.6} className={s.packMachine} />
           </div>
         </section>
       </div>

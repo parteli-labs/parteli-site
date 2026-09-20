@@ -30,13 +30,15 @@ Ordered roughly by what blocks a public launch.
 
 ## Page
 
-- [ ] **Set `NEXT_PUBLIC_SITE_URL`** once a custom domain is attached, so the Open Graph
-      image resolves to an absolute URL. On Vercel production deploys it falls back to
-      `VERCEL_PROJECT_PRODUCTION_URL` automatically; locally it is `localhost:3000`.
+- [ ] **Confirm the share card resolves once DNS lands.** `metadataBase` now defaults to
+      `https://www.parteli.ca` in code, so nothing needs setting for production. Paste the
+      live URL into a link preview checker and confirm `og.png` loads. Preview deploys
+      point at themselves automatically; `NEXT_PUBLIC_SITE_URL` overrides both if needed.
 - [ ] **Regenerate `public/og.png` if the headline or wordmark changes.** It is a static
       1200×630 render, not generated at build time. The template is `tools/og-template.html`
       — replace `WORDMARK_SRC` with a data URI of the wordmark, then screenshot it at
-      1200×630. Its line breaks are explicit so the lime phrase never splits.
+      1200×630. Its line breaks are explicit so the lime phrase never splits, and its pack
+      mirrors the hero's.
 - [ ] Consider a spam/rate limit on `/api/walkthrough` beyond the honeypot if it gets
       scraped. Vercel's firewall or a simple IP throttle would do.
 

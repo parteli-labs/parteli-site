@@ -1,20 +1,24 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
-const TITLE = 'Parteli — many riders, many dealers, one system';
+const TITLE = 'Parteli - many riders, many dealers, one system';
 const DESCRIPTION =
-  'Parteli is being built for the work your shop already does — sourcing parts, tracking who is on the clock, getting the invoice out. We are planning a small alpha.';
+  'Parteli is being built for the work your shop already does: sourcing parts, tracking who is on the clock, getting the invoice out. We are planning a small alpha.';
 
 /**
  * `metadataBase` resolves the OG image to an absolute URL, which every scraper
- * requires. Vercel sets VERCEL_PROJECT_PRODUCTION_URL on production deploys; set
- * NEXT_PUBLIC_SITE_URL once a custom domain is attached.
+ * requires. The production domain is the default rather than an env var: it is public,
+ * not a secret, and a share card that silently breaks because a variable was never set
+ * is a worse failure than a hardcoded string.
+ *
+ * NEXT_PUBLIC_SITE_URL still overrides it, which is what preview deploys want so their
+ * cards point at the preview rather than at production.
  */
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : 'http://localhost:3000');
+  (process.env.VERCEL_ENV === 'preview' && process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : 'https://www.parteli.ca');
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

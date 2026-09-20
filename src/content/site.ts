@@ -21,8 +21,8 @@ export const brand = {
 /**
  * The hero lead, as explicit lines. The last one is accented.
  * It names the network rather than the toolset: many of each side, one place they
- * meet. `plateRows` below carries what the system actually does, so the plate adds
- * to this line instead of restating it.
+ * meet. Nothing else in the first viewport makes a second claim — the pack of
+ * machines beside it is the only other thing there.
  */
 export const promise = {
   lines: ['Many riders', 'Many dealers'],
@@ -37,7 +37,7 @@ export const promise = {
  * without committing to a price or claiming it already ships.
  */
 export const subPromise =
-  'Parteli is being built for the work your shop already does — sourcing parts, tracking who is on the clock, getting the invoice out. We intend to make our money on a subscription, never on a cut of yours.';
+  'Parteli is being built for the work your shop already does: sourcing parts, tracking who is on the clock, getting the invoice out. We intend to make our money on a subscription, never on a cut of yours.';
 
 export const audience = {
   title: 'Built for shops that are not a chain',
@@ -51,13 +51,6 @@ export const cta = {
   email: 'hello@parteli.com',
   note: 'No pricing page yet, because there is nothing to sign.',
 } as const;
-
-/** The headline's three nouns, re-rendered as plate rows. No new claim. */
-export const plateRows = [
-  { key: 'parts', label: 'Parts', value: 'Sourced and priced' },
-  { key: 'bays', label: 'Bays', value: 'Who is on the clock' },
-  { key: 'money', label: 'Money', value: 'Ticket to invoice' },
-] as const;
 
 export const form = {
   shopLabel: 'Shop name',

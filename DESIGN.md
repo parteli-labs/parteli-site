@@ -20,7 +20,13 @@ colors:
 typography:
   display:
     fontFamily: "Chakra Petch, Archivo, sans-serif"
-    fontSize: "clamp(2.6rem, 7vw, 5.6rem)"
+    fontSize: "clamp(2rem, 10.2vw, 5.6rem)"
+    fontWeight: 700
+    lineHeight: 0.92
+    letterSpacing: "-0.03em"
+  display-lg:
+    fontFamily: "Chakra Petch, Archivo, sans-serif"
+    fontSize: "clamp(2.6rem, 5.8vw, 5.1rem)"
     fontWeight: 700
     lineHeight: 0.92
     letterSpacing: "-0.03em"
@@ -161,19 +167,6 @@ components:
     textColor: "{colors.plate-ink}"
     rounded: "{rounded.none}"
     padding: "clamp(2rem, 4.5vw, 3.75rem) clamp(1.25rem, 3vw, 3rem)"
-  plate-header:
-    backgroundColor: "{colors.lime}"
-    textColor: "{colors.plate-ink}"
-    typography: "{typography.label}"
-    padding: "0.65rem 1rem"
-  plate-row:
-    backgroundColor: "{colors.panel}"
-    textColor: "{colors.dim}"
-    padding: "0.6rem 1rem"
-  plate-foot:
-    backgroundColor: "{colors.black}"
-    textColor: "{colors.faint}"
-    padding: "0.6rem 1rem"
   checker-band:
     backgroundColor: "{colors.black}"
     height: "16px"
@@ -567,9 +560,13 @@ colours are `#C3FE06` and `#FF2200`; the screen palette is the tamed step down f
 
 ## The pack
 
-The hero plate carries three machines, not one, because the lead line reads "Many riders."
-They are the same inline-SVG geometry at three tones, staggered left/right/left and
-overlapped by 11%:
+The hero carries three machines, not one, because the lead line reads "Many riders."
+They sit **in the open** — no panel, no border, no ground of their own, directly on the
+bodywork. The number-plate card that framed them was removed on 2026-09-19; with it went
+the `01` ghost numeral, the lime plate header and the Parts / Bays / Money rows. All of
+that is recoverable from commit `cb1823f`.
+
+Three tones, staggered left/right/left, overlapped by 11%:
 
 | Position | Token | Role |
 |---|---|---|
@@ -577,20 +574,38 @@ overlapped by 11%:
 | Middle | `lime-mid` `#7d8f16` | One step back |
 | Rear | `lime-deep` `#47500f` | Two steps back |
 
-**This is the only depth in the system, and it is tonal.** There are no shadows anywhere on
-the page and this does not introduce one — recession is carried by the stroke colour alone,
-which is why it survives the no-shadow rule. If a fourth machine is ever added, it needs a
-fourth tone, not an opacity: opacity on a stroke over the panel ground reads as a different
-grey than the token ramp and breaks the recession.
+**This is the only depth in the system, and it is tonal.** There are no shadows anywhere
+on the page and this does not introduce one — recession is carried by stroke colour
+alone, which is why it survives the no-shadow rule. A fourth machine needs a fourth
+tone, not an opacity: opacity on a stroke over the ground reads as a different grey than
+the token ramp and breaks the recession.
 
-The ghost numeral behind the pack stays `01`. It is doing double duty — a race number, and
-the "One system" the accent line names — so it should not be pluralised or removed when the
-pack grows.
+**Consequence worth knowing:** with the rows gone, the first viewport makes exactly one
+claim — the lead line — and shows no product. A finish review previously flagged the
+hero's second column as carrying no argument, and the rows were what closed that. This
+is the user's chosen trade for a cleaner composition, not an oversight, but it is the
+first thing to revisit if the page fails to earn conversations.
 
-The plate's rows (Parts / Bays / Money) deliberately do **not** restate the headline. The
-lead line says who the system is for; the rows say what it does. When the headline was still
-"The parts, the bays and the money" those rows were an echo; they stopped being one when the
-headline changed, and they should not be re-synced to it.
+## The headline is size-constrained
+
+Each line of the lead is `display: block` plus `white-space: nowrap`, so "Many riders /
+Many dealers / One system" can never rewrap into a shape the accent no longer lands on.
+
+That makes **font size load-bearing rather than aesthetic.** Two ramps carry it, because
+the column is the viewport below 960px and roughly half of it above:
+
+- below 960px: `clamp(2rem, 10.2vw, 5.6rem)`
+- 960px and up: `clamp(2.6rem, 5.8vw, 5.1rem)`
+
+Both were tuned by measuring the real glyph run of the longest line ("Many dealers")
+against its box at every width from 320 to 1920. As built that leaves **13.3% slack with
+the webfont loaded and 6.7% with it blocked entirely** — the second number matters
+because `font-display: swap` briefly renders the fallback, which is wider.
+
+Changing either ramp, the face, the tracking, or the wording of a line without
+re-measuring will push the longest line off the side of the page. Note that
+`overflow-x: hidden` on `.root` will *hide* that failure rather than surface it, so
+measure the glyph run directly; a `scrollWidth` check will report a false pass.
 
 ## Open
 
