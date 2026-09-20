@@ -6,22 +6,47 @@ import { cta, form } from '@/content/site';
 
 type Status = 'idle' | 'sending' | 'sent' | 'error';
 
+/** Same shape the route enforces. Deliberately permissive. */
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export function WalkthroughForm({ styles }: { styles: Record<string, string> }) {
   const s = styles;
   const [status, setStatus] = useState<Status>('idle');
   const [message, setMessage] = useState('');
   const [showFallback, setShowFallback] = useState(false);
-  const errorRef = useRef<HTMLParagraphElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
 
   const shopId = useId();
   const emailId = useId();
   const errorId = useId();
+
+  /** Errors send focus to the field at fault, not to the message about it. */
+  function fail(text: string, fallback: boolean) {
+    setStatus('error');
+    setMessage(text);
+    setShowFallback(fallback);
+    requestAnimationFrame(() => emailRef.current?.focus());
+  }
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (status === 'sending') return;
 
     const data = new FormData(event.currentTarget);
+    const email = String(data.get('email') ?? '').trim();
+
+    // Checked here so the commonest mistake costs no round trip. `noValidate` is
+    // set on the form so this message replaces the browser's, rather than racing it.
+    if (!EMAIL_RE.test(email)) {
+      fail(
+        email
+          ? 'That email address does not look right. Check it and try again.'
+          : 'We need an email address to reply to.',
+        false,
+      );
+      return;
+    }
+
     setStatus('sending');
     setMessage('');
 
@@ -31,7 +56,7 @@ export function WalkthroughForm({ styles }: { styles: Record<string, string> }) 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           shop: data.get('shop'),
-          email: data.get('email'),
+          email,
           company: data.get('company'),
         }),
       });
@@ -42,26 +67,19 @@ export function WalkthroughForm({ styles }: { styles: Record<string, string> }) 
       };
 
       if (!res.ok) {
-        setStatus('error');
-        setMessage(json.error || 'Something went wrong. Try again.');
-        setShowFallback(Boolean(json.fallback));
-        // Move focus so a screen reader announces the problem.
-        requestAnimationFrame(() => errorRef.current?.focus());
+        fail(json.error || 'Something went wrong. Try again.', Boolean(json.fallback));
         return;
       }
 
       setStatus('sent');
     } catch {
-      setStatus('error');
-      setMessage('We could not reach the server. Check your connection, or email us directly.');
-      setShowFallback(true);
-      requestAnimationFrame(() => errorRef.current?.focus());
+      fail('We could not reach the server. Check your connection.', true);
     }
   }
 
   if (status === 'sent') {
     return (
-      <div className={s.formDone} role="status">
+      <div className={s.formDone} role="status" aria-live="polite">
         <p className={`${s.formDoneTitle} ${s.display}`}>{form.successTitle}</p>
         <p className={s.formDoneBody}>{form.successBody}</p>
       </div>
@@ -69,6 +87,7 @@ export function WalkthroughForm({ styles }: { styles: Record<string, string> }) 
   }
 
   const sending = status === 'sending';
+  const errored = status === 'error';
 
   return (
     <form className={s.form} onSubmit={onSubmit} noValidate>
@@ -102,8 +121,9 @@ export function WalkthroughForm({ styles }: { styles: Record<string, string> }) 
           placeholder={form.emailPlaceholder}
           maxLength={200}
           required
-          aria-describedby={status === 'error' ? errorId : undefined}
-          aria-invalid={status === 'error' || undefined}
+          ref={emailRef}
+          aria-describedby={errored ? errorId : undefined}
+          aria-invalid={errored || undefined}
           disabled={sending}
         />
       </div>
@@ -118,25 +138,18 @@ export function WalkthroughForm({ styles }: { styles: Record<string, string> }) 
         {sending ? form.submitting : form.submit}
       </button>
 
-      {status === 'error' && (
-        <p
-          className={s.formError}
-          id={errorId}
-          ref={errorRef}
-          tabIndex={-1}
-          role="alert"
-        >
-          {message}
-          {showFallback && (
-            <>
-              {' '}
-              <a className={s.formErrorLink} href={`mailto:${cta.email}`}>
-                {cta.email}
-              </a>
-            </>
-          )}
-        </p>
-      )}
+      <p className={s.formError} id={errorId} role="alert" hidden={!errored}>
+        {message}
+        {showFallback && (
+          <>
+            {' '}
+            {form.fallbackLead}{' '}
+            <a className={s.formErrorLink} href={`mailto:${cta.email}`}>
+              {cta.email}
+            </a>
+          </>
+        )}
+      </p>
 
       <p className={s.formPrivacy}>{form.privacy}</p>
     </form>

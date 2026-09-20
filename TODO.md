@@ -27,13 +27,17 @@ Ordered roughly by what blocks a public launch.
       `linearGradient`. Sampled source colours: `#C3FE06` lime, `#FF2200` red.
 - [ ] **Decide whether the wordmark is locked.** `PRODUCT.md` still records it as a
       candidate, not a commitment.
-- [ ] **Favicon and OG image.** Still the Next.js scaffold default. Both want the vector
-      wordmark first.
+- [ ] **Favicon.** Still the Next.js scaffold default; wants the vector wordmark first.
+      (The OG image is done — `public/og.png`, rendered in the page's own world.)
 
 ## Page
 
-- [ ] Add a `<meta>` description and Open Graph tags — the page has a title only, so any
-      link to it previews badly.
+- [ ] **Set `NEXT_PUBLIC_SITE_URL`** once a custom domain is attached, so the Open Graph
+      image resolves to an absolute URL. On Vercel production deploys it falls back to
+      `VERCEL_PROJECT_PRODUCTION_URL` automatically; locally it is `localhost:3000`.
+- [ ] **Regenerate `public/og.png` if the headline or wordmark changes.** It is a static
+      1200×630 render, not generated at build time. The source template is
+      `og.html` in the session scratchpad; if that is gone, rebuild it from the page.
 - [ ] Consider a spam/rate limit on `/api/walkthrough` beyond the honeypot if it gets
       scraped. Vercel's firewall or a simple IP throttle would do.
 

@@ -3,7 +3,7 @@ import { Archivo, Chakra_Petch, JetBrains_Mono } from 'next/font/google';
 
 import { Machine } from '@/components/machine';
 import { WalkthroughForm } from '@/components/walkthrough-form';
-import { audience, brand, cta, footer, subPromise } from '@/content/site';
+import { audience, brand, cta, footer, plateRows, subPromise } from '@/content/site';
 
 import s from './page.module.css';
 
@@ -72,7 +72,6 @@ export default function Home() {
             className={s.mark}
             priority
           />
-          <span className={`${s.topMeta} ${s.mono}`}>Alpha — limited</span>
         </header>
 
         {/* ------------------------------------------------------- hero --- */}
@@ -100,9 +99,17 @@ export default function Home() {
               </span>
               <Machine kind="dirt" strokeWidth={1.6} className={s.plateMachine} />
             </div>
+            <dl className={s.plateRows}>
+              {plateRows.map((row) => (
+                <div key={row.key} className={s.plateRow}>
+                  <dt className={s.plateRowLabel}>{row.label}</dt>
+                  <dd className={s.plateRowValue}>{row.value}</dd>
+                </div>
+              ))}
+            </dl>
+
             <div className={s.plateFoot}>
-              <span>Independent dealers</span>
-              <span className={s.mono}>Alpha — limited</span>
+              <span>Independent powersports dealers</span>
             </div>
           </div>
         </section>

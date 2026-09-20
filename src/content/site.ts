@@ -21,8 +21,15 @@ export const brand = {
 /** One line, no mechanism. What a shop owner gets. */
 export const promise = 'The parts, the bays and the money — one system.';
 
+/**
+ * Deliberately not present-tense about capability: the footer says the product is in
+ * development and the close says there is nothing to sign, so "Parteli runs …" and
+ * "charges a flat subscription" contradicted both. This states what the thing is and
+ * what it will not do to a shop's margin, which is the positioning in PRODUCT.md,
+ * without committing to a price or claiming it already ships.
+ */
 export const subPromise =
-  'Parteli runs the work your shop already does — sourcing parts, tracking who is on the clock, getting the invoice out — and charges a flat subscription instead of taking a cut of what you make.';
+  'One system for the work your shop already does: sourcing parts, tracking who is on the clock, getting the invoice out. We intend to make our money on a subscription — never on a cut of yours.';
 
 export const audience = {
   title: 'Built for shops that are not a chain',
@@ -37,6 +44,13 @@ export const cta = {
   note: 'No pricing page yet, because there is nothing to sign.',
 } as const;
 
+/** The headline's three nouns, re-rendered as plate rows. No new claim. */
+export const plateRows = [
+  { key: 'parts', label: 'Parts', value: 'Sourced and priced' },
+  { key: 'bays', label: 'Bays', value: 'Who is on the clock' },
+  { key: 'money', label: 'Money', value: 'Ticket to invoice' },
+] as const;
+
 export const form = {
   shopLabel: 'Shop name',
   shopPlaceholder: 'Where you wrench',
@@ -47,6 +61,8 @@ export const form = {
   successTitle: 'Got it',
   successBody: 'We will come back to you directly, usually within a couple of days.',
   privacy: 'We use this to reply to you and nothing else.',
+  /** Shown when the send path is unavailable; names the recovery, not the cause. */
+  fallbackLead: 'Write to us directly at',
 } as const;
 
 export const footer = {
