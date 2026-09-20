@@ -1,54 +1,69 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import { Archivo, Chakra_Petch, JetBrains_Mono } from 'next/font/google';
 
-import { brand } from '@/content/site';
+import { Machine } from '@/components/machine';
+import { WalkthroughForm } from '@/components/walkthrough-form';
+import { audience, brand, cta, footer, subPromise } from '@/content/site';
+
 import s from './page.module.css';
 
-export const metadata = { title: 'Parteli — landing drafts' };
+const archivo = Archivo({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-archivo',
+  display: 'swap',
+});
 
-const DRAFTS = [
-  {
-    href: '/v1-counter',
-    no: '01',
-    name: 'The parts counter',
-    what: 'Bin labels, thermal ink, steel shelf rail, catalog tab. Light, printed, industrial. Scannable Code 39 barcodes that actually encode.',
-    swatches: ['#e6e1d5', '#cfd91f', '#d1331a', '#35383a'],
-  },
-  {
-    href: '/v2-fiche',
-    no: '02',
-    name: 'The parts fiche',
-    what: 'An OEM catalogue leaf: an exploded figure with numbered callout balloons keyed to a table. The quietest of the five.',
-    swatches: ['#eceae3', '#f9f8f4', '#d5301a', '#15191b'],
-  },
-  {
-    href: '/v3-workorder',
-    no: '03',
-    name: 'The repair order',
-    what: 'A multi-part NCR work order. Canary shop copy, process-blue pre-printing, the headline typed into DESCRIPTION OF WORK, one rubber stamp.',
-    swatches: ['#efe6bd', '#faf6e8', '#2f5069', '#b3342a'],
-  },
-  {
-    href: '/v4-pitwall',
-    no: '04',
-    name: 'The pit wall',
-    what: 'Your own Glacial Ridgeline system, continued: the service board read as a timing board. Ice for position, one orange action.',
-    swatches: ['#07090a', '#5ccbe2', '#e8873a', '#64b98c'],
-  },
-  {
-    href: '/v5-livery',
-    no: '05',
-    name: 'The livery',
-    what: 'Chosen. The wordmark’s own world played straight: race bodywork, number plate, checkered bands, vinyl lime on black. Trimmed to hero, audience and close.',
-    swatches: ['#080906', '#c8e81f', '#ff3417', '#1a1d10'],
-  },
-] as const;
+/* A true italic with a motorsport character — the wordmark's own posture,
+   available as a typeface rather than faked by skewing a roman. */
+const chakra = Chakra_Petch({
+  subsets: ['latin'],
+  weight: ['600', '700'],
+  style: ['italic'],
+  variable: '--font-chakra',
+  display: 'swap',
+});
 
-export default function Index() {
+const jet = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-jet',
+  display: 'swap',
+});
+
+export default function Home() {
   return (
-    <main className={s.root}>
+    <main className={`${s.root} ${archivo.variable} ${chakra.variable} ${jet.variable}`}>
+      {/*
+        THESIS: The wordmark is already a race decal, so this page stops treating
+          that as a problem and builds the bodywork it belongs on — checkered bands,
+          number plate, vinyl lime on black. It refuses the neutral-SaaS arrangement
+          that would sand the mark down to fit, and it refuses the feature-tour
+          arrangement: three blocks, one action, nothing else.
+        OWN-WORLD: Black bodywork (#080906) with panels #111309 and #1a1d10; the
+          wordmark's own colours sampled and tamed one step, lime #c8e81f and red
+          #ff3417; lime is the action and the only large colour field. Chakra Petch
+          italic — a true italic, never a skewed roman — for every display line;
+          Archivo for text; JetBrains Mono tabular for numbers. Checkered bands are
+          built from repeating gradients, not an image. Controls are cut on a 10px
+          slant, the way vinyl is trimmed.
+        STORY: A shop owner sees a brand that looks like the machines on their floor,
+          learns in one line what it runs and who it is for, and asks for a walkthrough.
+        FIRST VIEWPORT: Lime checker band across the top, topbar, then a two-column
+          split — headline at up to 5.2rem in 16ch with one lime phrase, the qualifier
+          and the single slant-cut lime action on the left; on the right the number
+          plate, a machine in lime line art over an oversize italic race number.
+        FORM: Race livery / decal kit — the brief's own literal reading, spent as the
+          single candidate it is allowed. Candidate 7 of the grounded list; chosen by
+          the user over the assigned candidate 5; seed key 173c3e44.
+        FINISH: unreviewed and undocumented is unfinished; this build ends with the
+        finish review, the verdict, and DESIGN.md.
+      */}
+
+      <div className={s.checker} aria-hidden="true" />
+
       <div className={s.wrap}>
-        <header className={s.head}>
+        <header className={s.topbar}>
           <Image
             src={brand.wordmark}
             alt="Parteli"
@@ -57,39 +72,70 @@ export default function Index() {
             className={s.mark}
             priority
           />
-          <h1 className={s.h1}>Five first drafts of the Parteli landing page</h1>
-          <p className={s.lede}>
-            One page of content in five visual worlds, each derived from something an
-            independent powersports dealer already reads every day. Same facts, same
-            single action, same product screens — the argument is which world the brand
-            should live in.
-          </p>
-          <p className={s.note}>
-            All five are built to the same claim rules: no named partners, no traction or
-            pricing, outcomes rather than mechanism, and every interface labelled as sample
-            data. Nothing here asserts anything that is not true today.
-          </p>
+          <span className={`${s.topMeta} ${s.mono}`}>Alpha — limited</span>
         </header>
 
-        <nav className={s.list}>
-          {DRAFTS.map((d) => (
-            <Link key={d.href} href={d.href} className={s.item}>
-              <span className={s.itemNo}>{d.no}</span>
-              <span className={s.itemName}>{d.name}</span>
-              <span className={s.itemWhat}>{d.what}</span>
-              <span className={s.swatches} aria-hidden="true">
-                {d.swatches.map((c) => (
-                  <span key={c} className={s.sw} style={{ background: c }} />
-                ))}
-              </span>
-            </Link>
-          ))}
-        </nav>
+        {/* ------------------------------------------------------- hero --- */}
+        <section className={s.hero}>
+          <div>
+            <h1 className={`${s.h1} ${s.display}`}>
+              The parts, the bays and the money — <em>one system</em>
+            </h1>
+            <p className={s.heroSub}>{subPromise}</p>
+            <div className={s.heroActions}>
+              <a className={s.btn} href="#request">
+                {cta.action}
+              </a>
+            </div>
+          </div>
 
-        <p className={s.foot}>
-          Draft 05 is the chosen direction and has been trimmed to three blocks. The other
-          four are kept here for comparison until it is locked, then they come down.
-        </p>
+          <div className={s.plateCard}>
+            <div className={s.plateTop}>
+              <span>Shop system</span>
+              <span className={s.mono}>No. 01</span>
+            </div>
+            <div className={s.plateBody}>
+              <span className={s.plateNumber} aria-hidden="true">
+                01
+              </span>
+              <Machine kind="dirt" strokeWidth={1.6} className={s.plateMachine} />
+            </div>
+            <div className={s.plateFoot}>
+              <span>Independent dealers</span>
+              <span className={s.mono}>Alpha — limited</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div className={`${s.checker} ${s.checkerRed}`} aria-hidden="true" />
+
+      {/* ------------------------------------------------------ audience --- */}
+      <div className={s.wrap}>
+        <section className={s.decalWrap}>
+          <div className={s.decal}>
+            <h2 className={`${s.decalTitle} ${s.display}`}>{audience.title}</h2>
+            <p className={s.decalBody}>{audience.body}</p>
+          </div>
+        </section>
+
+        {/* --------------------------------------------------------- cta --- */}
+        <section className={s.cta} id="request">
+          <div>
+            <h2 className={`${s.ctaTitle} ${s.display}`}>{cta.heading}</h2>
+            <p className={s.ctaText}>{cta.body}</p>
+            <p className={s.ctaNote}>{cta.note}</p>
+          </div>
+
+          <div className={s.ctaForm}>
+            <WalkthroughForm styles={s} />
+          </div>
+        </section>
+
+        <footer className={s.footer}>
+          <span className={s.mono}>{footer.legal}</span>
+          <p className={s.footerNote}>{footer.disclosure}</p>
+        </footer>
       </div>
     </main>
   );

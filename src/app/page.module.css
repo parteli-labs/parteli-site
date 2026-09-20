@@ -1,139 +1,464 @@
 /*
- * The draft index. Deliberately neutral — it is a contact sheet for reviewing
- * five worlds, not a sixth world competing with them.
+ * V5 — THE LIVERY
+ * The wordmark's own world, played straight: race bodywork. Number plate,
+ * checkered bands, vinyl lime on black.
+ *
+ * Three blocks and one action. With no feature tour to carry the middle, the hero
+ * and the close each take more vertical room than they would on a longer page —
+ * a short page paced like a long one reads as a page with sections missing.
  */
 
 .root {
-  --bg: #16181a;
-  --panel: #1e2124;
-  --line: #2f3438;
-  --text: #eceeef;
-  --dim: #9aa1a5;
-  --faint: #6d7478;
+  --black: #080906;
+  --panel: #111309;
+  --panel-2: #1a1d10;
+  --line: #2b2f1c;
+  --plate-ink: #0a0b06;
 
-  background: var(--bg);
+  --text: #f3f2ea;
+  --dim: #9b9d8c;
+  --faint: #6a6c5e;
+
+  /* Sampled from the wordmark itself, tamed one step for screen. */
+  --lime: #c8e81f;
+  --red: #ff3417;
+
+  background: var(--black);
   color: var(--text);
-  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-family: var(--font-archivo), system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
+  overflow-x: hidden;
   min-height: 100svh;
 }
 
-.wrap {
-  width: min(1080px, 100% - 2.5rem);
-  margin-inline: auto;
-  padding-block: clamp(2.5rem, 6vw, 5rem) 4rem;
+/* Speed lettering. A real italic, never a skewed roman. */
+.display {
+  font-family: var(--font-chakra), var(--font-archivo), sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.head {
-  padding-bottom: clamp(2rem, 4vw, 3rem);
-  border-bottom: 1px solid var(--line);
+.mono {
+  font-family: var(--font-jet), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.wrap {
+  width: min(1280px, 100% - 2rem);
+  margin-inline: auto;
+}
+
+@media (min-width: 900px) {
+  .wrap {
+    width: min(1280px, 100% - 4.5rem);
+  }
+}
+
+/* -------------------------------------------------------- checker edge --- */
+/* The flag, as a structural band — two rows of squares, not an image. */
+
+.checker {
+  height: 16px;
+  background-image:
+    linear-gradient(45deg, var(--lime) 25%, transparent 25%, transparent 75%, var(--lime) 75%),
+    linear-gradient(45deg, var(--lime) 25%, transparent 25%, transparent 75%, var(--lime) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+  background-color: var(--black);
+}
+
+.checkerRed {
+  background-image:
+    linear-gradient(45deg, var(--red) 25%, transparent 25%, transparent 75%, var(--red) 75%),
+    linear-gradient(45deg, var(--red) 25%, transparent 25%, transparent 75%, var(--red) 75%);
+}
+
+/* ------------------------------------------------------------- topbar --- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.1rem;
+}
+
+.markLink {
+  display: block;
+  line-height: 0;
 }
 
 .mark {
-  height: 38px;
+  height: 36px;
   width: auto;
 }
 
-.h1 {
-  margin-top: clamp(1.5rem, 3vw, 2.25rem);
-  font-size: clamp(1.7rem, 3.4vw, 2.5rem);
-  line-height: 1.08;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  max-width: 24ch;
-}
-
-.lede {
-  margin-top: 1rem;
-  max-width: 68ch;
-  color: var(--dim);
-}
-
-.note {
-  margin-top: 1.25rem;
-  max-width: 68ch;
-  color: var(--faint);
-  font-size: 0.92rem;
-}
-
-.list {
-  margin-top: clamp(1.5rem, 3vw, 2.5rem);
-  display: grid;
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
-}
-
-.item {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 0.35rem 1.25rem;
-  align-items: baseline;
-  padding: clamp(1.1rem, 2.5vw, 1.6rem);
-  background: var(--panel);
-  text-decoration: none;
-  transition: background 140ms;
-}
-
-@media (min-width: 820px) {
-  .item {
-    grid-template-columns: 2.5rem minmax(0, 14rem) minmax(0, 1fr) auto;
+@media (min-width: 700px) {
+  .mark {
+    height: 52px;
   }
 }
 
-.item:hover {
-  background: #262a2e;
-}
-
-.itemNo {
-  font-family: ui-monospace, monospace;
-  color: var(--faint);
-  font-size: 0.9rem;
-}
-
-.itemName {
-  font-size: 1.15rem;
+.topMeta {
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--faint);
 }
 
-.itemWhat {
+/* ---------------------------------------------------------------- hero --- */
+/* Bodywork: the number plate carries the machine, the panel carries the line. */
+
+.hero {
+  padding-block: clamp(3rem, 8vw, 6.5rem) clamp(3rem, 8vw, 6rem);
+  display: grid;
+  gap: clamp(2.25rem, 5vw, 4rem);
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .hero {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  }
+}
+
+.h1 {
+  font-size: clamp(2.5rem, 6.4vw, 5.2rem);
+  line-height: 0.94;
+  letter-spacing: -0.028em;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+
+.h1 em {
+  font-style: inherit;
+  color: var(--lime);
+}
+
+.heroSub {
+  margin-top: clamp(1.4rem, 2.6vw, 2rem);
+  max-width: 54ch;
+  color: var(--dim);
+  font-size: clamp(1.02rem, 1.3vw, 1.15rem);
+}
+
+.heroActions {
+  margin-top: clamp(1.75rem, 3.2vw, 2.5rem);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+/* The number plate: a real race-bodywork device carrying the machine. */
+
+.plateCard {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.plateTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 1rem;
+  background: var(--lime);
+  color: var(--plate-ink);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.plateBody {
+  position: relative;
+  padding: clamp(1.75rem, 4.5vw, 3.25rem) clamp(1rem, 3vw, 2rem);
+  display: grid;
+  place-items: center;
+  min-height: 250px;
+}
+
+.plateNumber {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-chakra), sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(9rem, 22vw, 16rem);
+  line-height: 1;
+  color: var(--panel-2);
+  user-select: none;
+  pointer-events: none;
+}
+
+.plateMachine {
+  position: relative;
+  width: min(100%, 340px);
+  color: var(--lime);
+}
+
+.plateFoot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+  justify-content: space-between;
+  padding: 0.65rem 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+/* -------------------------------------------------------------- button --- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 50px;
+  background: var(--lime);
+  color: var(--plate-ink);
+  border: 2px solid var(--lime);
+  font-family: var(--font-chakra), sans-serif;
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+  padding-inline: 2rem;
+  transition: background 140ms, color 140ms, border-color 140ms;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--text);
+  border-color: var(--text);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: progress;
+}
+
+/* ----------------------------------------------------------- audience --- */
+/* A decal panel: lime ground, black lettering. The page's one colour field. */
+
+.decalWrap {
+  padding-block: clamp(3rem, 7vw, 5.5rem) clamp(2rem, 4vw, 3rem);
+}
+
+.decal {
+  background: var(--lime);
+  color: var(--plate-ink);
+  padding: clamp(2rem, 4.5vw, 3.75rem) clamp(1.25rem, 3vw, 3rem);
+  display: grid;
+  gap: clamp(1.1rem, 2.5vw, 2.5rem);
+}
+
+@media (min-width: 880px) {
+  .decal {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+  }
+}
+
+.decalTitle {
+  font-size: clamp(1.8rem, 3.8vw, 3.1rem);
+  line-height: 1;
+  letter-spacing: -0.028em;
+  text-wrap: balance;
+}
+
+.decalBody {
+  color: #2c3107;
+  max-width: 52ch;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+}
+
+/* ---------------------------------------------------------------- cta --- */
+
+.cta {
+  padding-block: clamp(2rem, 4vw, 3rem) clamp(3rem, 6vw, 4.5rem);
+  display: grid;
+  gap: clamp(1.75rem, 3.5vw, 3.5rem);
+  align-items: start;
+  scroll-margin-top: 1.5rem;
+}
+
+@media (min-width: 860px) {
+  .cta {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 24rem);
+  }
+}
+
+.ctaTitle {
+  font-size: clamp(2rem, 4.4vw, 3.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  max-width: 18ch;
+}
+
+.ctaText {
+  margin-top: 1.1rem;
+  max-width: 50ch;
+  color: var(--dim);
+  font-size: clamp(1rem, 1.2vw, 1.08rem);
+}
+
+.ctaNote {
+  margin-top: 0.9rem;
+  font-size: 0.87rem;
+  color: var(--faint);
+}
+
+/* --------------------------------------------------------------- form --- */
+/* Instrument panel, not a signup widget: square fields, hairline borders, the
+   lime reserved for focus and the submit. */
+
+.ctaForm {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.formField {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.formLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.formInput {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 0.85rem;
+  background: var(--black);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  font-size: 15px;
+  transition: border-color 140ms;
+}
+
+.formInput::placeholder {
+  color: var(--faint);
+}
+
+.formInput:hover:not(:disabled) {
+  border-color: #464b2e;
+}
+
+.formInput:focus-visible {
+  outline: none;
+  border-color: var(--lime);
+  box-shadow: 0 0 0 1px var(--lime);
+}
+
+.formInput:disabled {
+  opacity: 0.55;
+}
+
+.form .btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.25rem;
+}
+
+/* Honeypot: off-screen rather than display:none, which some bots skip. */
+.formTrap {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.formError {
+  margin: 0;
+  color: #ffb3a3;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.formError:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 3px;
+}
+
+.formErrorLink {
+  color: var(--lime);
+}
+
+.formPrivacy {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--faint);
+}
+
+.formDone {
+  display: grid;
+  gap: 0.5rem;
+  padding-block: 0.5rem;
+}
+
+.formDoneTitle {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--lime);
+}
+
+.formDoneBody {
+  margin: 0;
   color: var(--dim);
   font-size: 0.95rem;
-  grid-column: 2 / -1;
 }
 
-@media (min-width: 820px) {
-  .itemWhat {
-    grid-column: auto;
-  }
-}
+/* -------------------------------------------------------------- footer --- */
 
-.swatches {
-  display: flex;
-  gap: 4px;
-  grid-column: 2 / -1;
-  margin-top: 0.4rem;
-}
-
-@media (min-width: 820px) {
-  .swatches {
-    grid-column: auto;
-    margin-top: 0;
-  }
-}
-
-.sw {
-  width: 22px;
-  height: 22px;
-  border-radius: 3px;
-  border: 1px solid rgb(255 255 255 / 0.14);
-}
-
-.foot {
-  margin-top: 2.5rem;
+.footer {
+  border-top: 1px solid var(--line);
+  padding-block: 1.75rem 3rem;
+  display: grid;
+  gap: 1rem;
+  font-size: 12px;
   color: var(--faint);
-  font-size: 0.88rem;
-  max-width: 68ch;
+}
+
+@media (min-width: 760px) {
+  .footer {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+}
+
+.footerNote {
+  max-width: 62ch;
+  line-height: 1.6;
 }

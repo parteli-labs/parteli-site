@@ -3,22 +3,21 @@
 Public marketing site for Parteli — a SaaS platform for independent powersports
 dealerships. Next.js 16 (App Router) + TypeScript + Tailwind v4, deployed on Vercel.
 
-## Right now: five landing drafts
+## The page
 
-`/` is a review index. Each route below is a complete first draft of the same page in
-a different visual world:
+One page at `/`, in the "livery" direction — the wordmark's own world played straight:
+race bodywork, number plate, checkered bands, vinyl lime on black. Three blocks and one
+action: hero → "built for shops that are not a chain" → request a walkthrough.
 
-| Route | World |
-|---|---|
-| `/v1-counter` | The parts counter — bin labels, thermal ink, steel shelving |
-| `/v2-fiche` | The parts fiche — exploded figure keyed to a table |
-| `/v3-workorder` | The repair order — NCR carbon copy, typed entries |
-| `/v4-pitwall` | The pit wall — the service board as a timing board |
-| `/v5-livery` | **The livery — chosen.** Race bodywork, the wordmark's own world |
+It was chosen from five drafts, all of which are in commit `08e2503` if you want to look
+back at the parts counter, the parts fiche, the repair order or the pit wall.
 
-**Draft 05 is the chosen direction**, trimmed to three blocks (hero, audience, close)
-and one action. The other four are kept for comparison until it is locked, then they
-come down. The finish pass (review, fixes, `DESIGN.md`) runs on draft 05.
+## The form
+
+`POST /api/walkthrough` sends a walkthrough request by email through Resend. It needs
+environment variables to work — see `.env.example` and the top of `TODO.md`. **Never
+commit the API key.** Without `RESEND_API_KEY` the route returns 503 and the form shows
+a `mailto:` fallback rather than pretending to have sent.
 
 ## Claim rules
 
@@ -35,11 +34,13 @@ These are binding and recorded in `PRODUCT.md`:
 
 - `PRODUCT.md` — product truth and the claim rules above.
 - `.impeccable/surfaces/src-app-page-tsx.md` — the surface brief and the direction round.
+- `DESIGN.md` — the built visual system.
+- `TODO.md` — what is left before this is public.
 - `.impeccable/evidence/` — the business manager's rider-app and dealer-console mockups,
   kept as evidence, not authority.
 - `../parteli-app-mvp-57/DESIGN.md` — the MVP app's own system ("Glacial Ridgeline").
-  The product screens on every draft are recreated from its tokens and its
-  `assets/art/machine-*.svg` geometry.
+  The machine line art in the number plate is that app's own
+  `assets/art/machine-dirt.svg` geometry, transcribed to inline SVG.
 
 ## Develop
 

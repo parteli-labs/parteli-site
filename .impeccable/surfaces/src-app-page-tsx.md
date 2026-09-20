@@ -18,14 +18,17 @@ is no separate investor story.
 
 ## Action
 
-Exactly one: request a walkthrough (mailto). No signup, no pricing, no second CTA
-competing with it.
+Exactly one: request a walkthrough, via a two-field form (shop name optional, email
+required) posting to `/api/walkthrough`, which sends through Resend. A `mailto:` link is
+the fallback shown only when the API is unreachable or unconfigured. No signup, no
+pricing, no second CTA competing with it.
 
 ## Proof and content
 
-The MVP app's interface, recreated in HTML/CSS from `../parteli-app-mvp-57`
-(`DESIGN.md` tokens, `assets/art/machine-*.svg` geometry), labelled as sample data
-wherever it appears. This is the only proof available and it is the page's centre.
+None rendered. The MVP interface recreations were cut when the page was trimmed to a
+teaser, so the only product artefact left is the machine line art in the number plate —
+`machine-dirt.svg` geometry from `../parteli-app-mvp-57`. The page asserts rather than
+demonstrates; that is a known, user-chosen trade and the standing risk on this surface.
 
 ## Constraints
 
@@ -70,9 +73,16 @@ Consequence to watch: the product screens were the surface's only proof, so the 
 asserts rather than demonstrates. The machine line art in the number plate is all that
 remains of the product. Flagged to the user; they chose the teaser.
 
+## Shipped state
+
+Promoted to `/` on 2026-09-19. The four unchosen drafts and the review index are removed;
+they remain in commit `08e2503`.
+
 ## Unresolved
 
-- Locking draft 05, after which the other four routes and the index come down.
+- See `TODO.md`. Blocking a public launch: Resend key and verified sender, the
+  `robots: noindex` decision, and whether `hello@parteli.com` is a real mailbox.
+- The wordmark is still a raster PNG and still recorded as a candidate, not a commitment.
 - Whether the wordmark is locked (currently a candidate) and whether it should be
   vectorised — it ships as a 1741×824 PNG.
 - Whether a form backend replaces the mailto.
