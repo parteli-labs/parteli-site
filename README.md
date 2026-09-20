@@ -1,7 +1,13 @@
 # parteli-site
 
 Public marketing site for Parteli — a SaaS platform for independent powersports
-dealerships. Next.js 16 (App Router) + TypeScript + Tailwind v4, deployed on Vercel.
+dealerships. Next.js 16 (App Router) + TypeScript, deployed on Vercel.
+
+**Styling is CSS Modules, not Tailwind.** `tailwindcss` is installed and wired into
+`postcss.config.mjs` by the `create-next-app` scaffold, but `globals.css` never imports
+it, so no utilities are generated and a Tailwind class in this codebase does nothing.
+The whole visual system lives in `src/app/page.module.css` as custom properties. See
+`DESIGN.md`, and `TODO.md` for the decision to either remove Tailwind or wire it up.
 
 ## The page
 

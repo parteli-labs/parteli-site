@@ -8,9 +8,14 @@ web
 
 ## Stack
 
-Delegated. Next.js 16 (App Router) + TypeScript + Tailwind v4, deployed on Vercel — the user
-named Vercel as the host and asked for the codebase to be set up, so the framework choice was
-made for them rather than interviewed. Repo: `github.com/parteli-labs/parteli-site` (private).
+Delegated. Next.js 16 (App Router) + TypeScript, deployed on Vercel — the user named Vercel as
+the host and asked for the codebase to be set up, so the framework choice was made for them
+rather than interviewed. Repo: `github.com/parteli-labs/parteli-site` (private).
+
+Styling is **CSS Modules**. The scaffold installed Tailwind v4 and configured its PostCSS
+plugin, but `globals.css` never imports it, so nothing it provides is reachable. An earlier
+version of this record claimed Tailwind was the styling approach; that was never true of the
+shipped code.
 
 ## Users
 
@@ -63,8 +68,10 @@ product functionality, a blog or docs.
 
 **Claim constraints (confirmed with the user, and binding):**
 
-- **Product UI may be shown.** Real screenshots or faithful recreations of the MVP demo interface
-  are approved as the page's visual proof.
+- **Product UI may be shown** — the user approved real screenshots or faithful recreations of the
+  MVP demo interface. The permission stands, but the shipped page does not use it: the
+  product-screen section was cut when the page was trimmed to a teaser, so the only product
+  artefact on the surface is the machine line art in the number plate.
 - **No named partners.** Cycle Works Red Deer and every other dealer stays unnamed. No logos, no
   "trusted by", no customer count.
 - **No market or geography framing as a claim.** The Alberta focus and the dealer-consolidation
@@ -117,8 +124,10 @@ repo is next touched.
 
 1. **Credibility is the conversion.** A dealer decides in seconds whether this is a real company.
    Every element either earns that or costs it; nothing on the page is decorative filler.
-2. **Show the product, don't describe it.** The MVP interface is the only proof available. Lead
-   with it rather than with adjectives about it.
+2. **Show the product rather than describing it, whenever the surface shows anything.** The MVP
+   interface is the only proof available. The landing page currently shows none of it by the
+   user's explicit choice, which is why it asserts rather than demonstrates — a known, accepted
+   trade, and the first thing to revisit if the page fails to earn a conversation.
 3. **Outcomes for the dealer, always.** Every claim resolves to something a shop owner feels:
    money kept, time saved, work visible. Platform capability that does not resolve that way is
    not on this page.

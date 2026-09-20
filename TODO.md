@@ -42,6 +42,15 @@ Ordered roughly by what blocks a public launch.
 - [ ] Consider a spam/rate limit on `/api/walkthrough` beyond the honeypot if it gets
       scraped. Vercel's firewall or a simple IP throttle would do.
 
+## Housekeeping
+
+- [ ] **Decide what to do about Tailwind.** `tailwindcss` + `@tailwindcss/postcss` are
+      installed and the PostCSS plugin is configured, but `globals.css` never imports
+      Tailwind, so no utilities are generated and the dependency is unreachable dead
+      weight. Either remove both packages and the PostCSS plugin, or add
+      `@import "tailwindcss";` to `globals.css` if you want utilities available
+      alongside the CSS Modules. Left as your call rather than removed unilaterally.
+
 ## Cross-repo
 
 - [ ] The app repo (`../parteli-app-mvp-57`) still spells the Phase 3 consumer brand
