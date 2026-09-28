@@ -1,5 +1,29 @@
 import type { Metadata, Viewport } from 'next';
+import { Archivo, IBM_Plex_Mono, Instrument_Sans } from 'next/font/google';
+
 import './globals.css';
+
+/* Variable width axis is used for the condensed-to-extended display cuts. */
+const archivo = Archivo({
+  subsets: ['latin'],
+  axes: ['wdth'],
+  variable: '--font-archivo',
+  display: 'swap',
+});
+
+const instrument = Instrument_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-instrument',
+  display: 'swap',
+});
+
+const plex = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-plex',
+  display: 'swap',
+});
 
 const TITLE = 'Parteli - many riders, many dealers, one system';
 const DESCRIPTION = 'Parteli is being built to connect dealers\' shops, riders\' machines, and every part in between.';
@@ -33,13 +57,13 @@ export const metadata: Metadata = {
 
 /** Keeps mobile browser chrome dark against the page instead of default light. */
 export const viewport: Viewport = {
-  themeColor: '#080906',
+  themeColor: '#151515',
   colorScheme: 'dark',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${archivo.variable} ${instrument.variable} ${plex.variable}`}>
       <body>{children}</body>
     </html>
   );

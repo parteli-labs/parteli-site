@@ -24,6 +24,7 @@ For 3+ items of one kind, prefix each with a code: D decisions, O options, F fin
 # Scope
 - Deliver only what was requested. No unrequested cleanup, refactoring, docs, features, or speculative abstraction.
 - Never claim completion without evidence.
+- Always let me write/review the commit messages before staging.
 - Never add a co-author to commits.
 - Summarize completed work briefly.
 

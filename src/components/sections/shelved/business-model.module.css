@@ -1,0 +1,41 @@
+.model {
+  padding-block: clamp(88px, 11vw, 160px);
+}
+
+.streams {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2.4vw, 32px);
+}
+
+.stream {
+  border-top: 2px solid var(--lime);
+  padding-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stream > span {
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.stream h3 {
+  font-weight: 800;
+  font-variation-settings: 'wdth' 110;
+  font-size: clamp(22px, 2vw, 28px);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.stream p {
+  color: var(--fog);
+  font-size: 16px;
+}
+
+@media (max-width: 860px) {
+  .streams {
+    grid-template-columns: 1fr;
+  }
+}

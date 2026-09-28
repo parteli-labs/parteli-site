@@ -1,0 +1,157 @@
+.ryde {
+  background: var(--ink);
+  padding-block: clamp(72px, 9vw, 140px);
+  overflow: hidden;
+  position: relative;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 96px);
+  align-items: center;
+}
+
+.h2 {
+  font-weight: 900;
+  font-variation-settings: 'wdth' 125;
+  font-size: clamp(64px, 11vw, 200px);
+  line-height: 0.8;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.o {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--snow);
+}
+
+.l {
+  color: var(--lime);
+}
+
+.cap {
+  margin-top: 36px;
+  max-width: 28em;
+  color: var(--fog);
+  font-size: 18px;
+}
+
+/* ---------------------------------------------------------------- phone --- */
+
+.stage {
+  display: flex;
+  justify-content: center;
+  perspective: 1400px;
+}
+
+/* iPhone 17 Pro screen proportions (1206 × 2622 capture) inside a 12px bezel. */
+.phone {
+  --w: clamp(240px, 26vw, 320px);
+
+  width: var(--w);
+  padding: 12px;
+  border-radius: calc(var(--w) * 0.16);
+  background: #050505;
+  box-shadow:
+    0 0 0 1.5px #3a3d38,
+    0 0 0 5px #121311,
+    0 40px 80px rgba(0, 0, 0, 0.6),
+    0 0 120px rgba(206, 255, 0, 0.08);
+  animation: float 7s ease-in-out infinite;
+  transform: rotateY(-10deg) rotateX(4deg);
+}
+
+.screen {
+  position: relative;
+  aspect-ratio: 1206 / 2622;
+  border-radius: calc(var(--w) * 0.13);
+  overflow: hidden;
+  background: #0e1215;
+  container-type: size;
+}
+
+/* Fixed over the scrolling list; the capture's own status bar is painted out. */
+.status {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 1;
+  height: 7.1%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1% 9% 0 12%;
+  background: #0e1215;
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: calc(var(--w) * 0.044);
+  color: #f2f4f1;
+}
+
+.island {
+  position: absolute;
+  left: 50%;
+  top: 18%;
+  width: 31%;
+  height: 58%;
+  translate: -50% 0;
+  border-radius: 999px;
+  background: #000;
+}
+
+.icons {
+  width: 20%;
+  height: auto;
+}
+
+/* Where the tab bar sits in the original capture: x 60, y 2370, w 1086. */
+.tabbar {
+  position: absolute;
+  z-index: 1;
+  left: 4.975%;
+  top: 90.39%;
+  width: 90.05%;
+  height: auto;
+}
+
+/* Scrolls from the top of the list to its end and back, holding at each end. */
+.shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: scroll 11s cubic-bezier(0.65, 0, 0.35, 1) 1.2s infinite;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .phone {
+    --w: min(280px, 72vw);
+  }
+}
+
+@keyframes scroll {
+  0%,
+  18% {
+    transform: translateY(0);
+  }
+  50%,
+  68% {
+    transform: translateY(calc(-100% + 100cqh));
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: rotateY(-10deg) rotateX(4deg) translateY(0);
+  }
+  50% {
+    transform: rotateY(-6deg) rotateX(2deg) translateY(-12px);
+  }
+}

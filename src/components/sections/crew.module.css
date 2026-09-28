@@ -1,0 +1,22 @@
+.crew {
+  padding-block: clamp(88px, 11vw, 160px);
+}
+
+.big {
+  margin-top: 22px;
+  font-family: var(--display);
+  font-weight: 900;
+  font-variation-settings: 'wdth' 125;
+  font-size: clamp(40px, 7.4vw, 124px);
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.dim {
+  color: #51564d;
+}
+
+.lime {
+  color: var(--lime);
+}

@@ -81,7 +81,7 @@ they remain in commit `08e2503`.
 ## Unresolved
 
 - See `TODO.md`. Blocking a public launch: Resend key and verified sender, the
-  `robots: noindex` decision, and whether `hello@parteli.com` is a real mailbox.
+  `robots: noindex` decision, and whether `ryder@parteli.ca` is a real mailbox.
 - The wordmark is still a raster PNG and still recorded as a candidate, not a commitment.
 - Whether the wordmark is locked (currently a candidate) and whether it should be
   vectorised — it ships as a 1741×824 PNG.

@@ -1,0 +1,86 @@
+.invest {
+  padding-block: clamp(96px, 12vw, 180px);
+  border-top: 1px solid var(--line);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: end;
+}
+
+.raise {
+  font-family: var(--display);
+  font-weight: 900;
+  font-variation-settings: 'wdth' 125;
+  font-size: clamp(88px, 15vw, 250px);
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  margin-top: 22px;
+  color: var(--snow);
+}
+
+.raise span {
+  display: block;
+  font-size: 0.2em;
+  letter-spacing: 0.2em;
+  color: var(--lime);
+  margin-top: 0.5em;
+  font-weight: 700;
+}
+
+.copy h2 {
+  font-weight: 800;
+  font-variation-settings: 'wdth' 104;
+  font-size: clamp(30px, 3.4vw, 52px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.copy > p {
+  color: var(--snow-2);
+  font-size: clamp(17px, 1.3vw, 19px);
+  max-width: 34em;
+  margin-bottom: 28px;
+}
+
+.copy > p.fine {
+  font-size: 12px;
+  color: var(--fog);
+  margin-top: 18px;
+  margin-bottom: 0;
+}
+
+/* Stacked rather than inline: the label is longer than the address and wrapped
+   unevenly beside it at most widths. */
+.mailbox {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 20px;
+  box-shadow: inset 0 0 0 1px rgba(238, 241, 236, 0.3);
+  max-width: 100%;
+}
+
+.addr {
+  font-family: var(--mono);
+  font-size: clamp(15px, 1.6vw, 19px);
+  overflow-wrap: anywhere;
+}
+
+.who {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fog);
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

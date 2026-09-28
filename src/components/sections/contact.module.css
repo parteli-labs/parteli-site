@@ -1,0 +1,160 @@
+.contact {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(96px, 12vw, 180px);
+  background: var(--ink);
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.inner h2 {
+  font-weight: 900;
+  font-variation-settings: 'wdth' 118;
+  font-size: clamp(42px, 7vw, 116px);
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  max-width: 11em;
+}
+
+.inner h2 span {
+  color: var(--lime);
+}
+
+.inner > p {
+  color: var(--snow-2);
+  max-width: 36em;
+  font-size: clamp(17px, 1.4vw, 20px);
+}
+
+.inner > p.ask {
+  font-size: 16px;
+  color: var(--fog);
+}
+
+.ask a {
+  color: var(--snow);
+  text-decoration-color: var(--lime);
+  text-underline-offset: 4px;
+}
+
+.formWrap {
+  width: 100%;
+  max-width: 520px;
+}
+
+/* ---------------------------------------------------------------- form --- */
+/* Styles for the locked WalkthroughForm; it reads these class names. Its submit
+   button also carries the shared .btn class. */
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form button[type='submit'] {
+  width: 100%;
+  justify-content: center;
+  min-height: 52px;
+  margin-top: 0.25rem;
+}
+
+.formField {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.formLabel {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fog);
+}
+
+.formInput {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 1rem;
+  background: var(--char);
+  color: var(--snow);
+  border: 0;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 1px rgba(238, 241, 236, 0.3);
+  font-family: var(--mono);
+  font-size: 15px;
+  transition: box-shadow 140ms;
+}
+
+.formInput::placeholder {
+  color: #676c63;
+}
+
+.formInput:hover:not(:disabled) {
+  box-shadow: inset 0 0 0 1px rgba(238, 241, 236, 0.55);
+}
+
+.formInput:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--lime);
+}
+
+.formInput:disabled {
+  opacity: 0.55;
+}
+
+/* Honeypot: off-screen rather than display:none, which some bots skip. */
+.formTrap {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.formError {
+  color: #ffb3a3;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.formError[hidden] {
+  display: none;
+}
+
+.formErrorLink {
+  color: var(--lime);
+}
+
+.formPrivacy {
+  font-size: 0.78rem;
+  color: var(--fog);
+}
+
+.formDone {
+  display: grid;
+  gap: 0.5rem;
+  padding-block: 0.5rem;
+}
+
+.formDoneTitle {
+  font-weight: 900;
+  font-variation-settings: 'wdth' 118;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--lime);
+}
+
+.formDoneBody {
+  color: var(--snow-2);
+  font-size: 1rem;
+}

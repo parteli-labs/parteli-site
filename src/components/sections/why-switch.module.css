@@ -1,0 +1,77 @@
+.switch {
+  padding-block: clamp(88px, 11vw, 160px);
+  background: var(--char-2);
+  border-block: 1px solid var(--line);
+}
+
+.table {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr) minmax(0, 1fr);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+/* Rows exist for table semantics; the cells sit directly on the grid. */
+.row {
+  display: contents;
+}
+
+.row > div {
+  padding: 18px clamp(14px, 2vw, 24px);
+  border-top: 1px solid var(--line);
+  font-size: 16px;
+}
+
+.row > .hd {
+  border-top: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fog);
+}
+
+.row > .us {
+  color: var(--ink);
+  background: var(--lime);
+  font-weight: 500;
+}
+
+.row > .label {
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 112;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--snow);
+}
+
+.old {
+  color: var(--fog);
+}
+
+.new {
+  color: var(--snow);
+  background: rgba(206, 255, 0, 0.05);
+}
+
+@media (max-width: 760px) {
+  .table {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .row > .corner {
+    display: none;
+  }
+
+  .row > .label {
+    grid-column: 1 / -1;
+    background: var(--char);
+    padding-block: 12px;
+  }
+
+  .row > .old,
+  .row > .new {
+    font-size: 15px;
+  }
+}

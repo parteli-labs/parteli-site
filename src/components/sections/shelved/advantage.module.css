@@ -1,0 +1,28 @@
+.advantage {
+  padding-block: clamp(88px, 11vw, 160px);
+}
+
+.moat {
+  --eyebrow-color: var(--ink);
+
+  background: var(--lime);
+  color: var(--ink);
+  padding: clamp(36px, 6vw, 88px);
+}
+
+.moat h2 {
+  font-weight: 900;
+  font-variation-settings: 'wdth' 120;
+  font-size: clamp(44px, 8vw, 136px);
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  margin: 22px 0 28px;
+}
+
+.moat p {
+  font-size: clamp(17px, 1.5vw, 21px);
+  line-height: 1.5;
+  max-width: 40em;
+  color: #1b1d12;
+}

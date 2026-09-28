@@ -25,8 +25,9 @@ Ordered roughly by what blocks a public launch.
       `linearGradient`. Sampled source colours: `#C3FE06` lime, `#FF2200` red.
 - [ ] **Decide whether the wordmark is locked.** `PRODUCT.md` still records it as a
       candidate, not a commitment.
-- [ ] **Favicon.** Still the Next.js scaffold default; wants the vector wordmark first.
-      (The OG image is done — `public/og.png`, rendered in the page's own world.)
+- [x] **Favicon.** The logomark, traced from a screenshot: `src/app/icon.svg`, plus
+      `favicon.ico` and `apple-icon.png` rendered from it. Colours are estimated; swap in
+      the source file's values if Ryder supplies one.
 
 ## Page
 
@@ -44,9 +45,8 @@ Ordered roughly by what blocks a public launch.
 
 ## Cross-repo
 
-- [ ] The app repo (`../parteli-app-mvp-57`) still spells the Phase 3 consumer brand
-      **"Let's Ryde"** in its `PRODUCT.md`. Cam has settled on **"Let's Ride"**. Correct it
-      next time that repo is touched.
+- [x] The consumer brand is **"Let's Ryde"**, confirmed by Ryder on 2026-09-28. The app
+      repo (`../parteli-app-mvp-57`) already spells it that way.
 
 ## Recoverable, if wanted
 

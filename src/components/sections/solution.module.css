@@ -1,0 +1,126 @@
+.solution {
+  padding-block: clamp(88px, 11vw, 160px);
+  position: relative;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 80px);
+  align-items: center;
+}
+
+.diagram {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  max-width: 100%;
+}
+
+.diagram svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.flow {
+  stroke: var(--lime);
+  stroke-width: 1.6;
+  fill: none;
+  stroke-dasharray: 4 10;
+  animation: flow 1.6s linear infinite;
+}
+
+.ring {
+  animation-direction: reverse;
+  opacity: 0.5;
+}
+
+.core {
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 125;
+  font-weight: 800;
+  font-size: 19px;
+  letter-spacing: 2.4px;
+  fill: var(--ink);
+}
+
+.coreSub {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  fill: var(--ink);
+}
+
+.node {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  fill: var(--snow);
+}
+
+.node rect {
+  fill: var(--char);
+  stroke: var(--snow);
+  stroke-width: 1;
+}
+
+.nodeSub {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 1.2px;
+  fill: var(--fog);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 22px;
+  padding-block: 26px;
+  border-top: 1px solid var(--line);
+}
+
+.item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.item > span {
+  padding-top: 6px;
+}
+
+.item h3 {
+  font-weight: 700;
+  font-variation-settings: 'wdth' 112;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+
+.item p {
+  color: var(--fog);
+  font-size: 16px;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .diagram {
+    max-width: 520px;
+    margin-inline: auto;
+    width: 100%;
+  }
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
