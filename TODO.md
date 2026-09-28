@@ -4,14 +4,14 @@ Ordered roughly by what blocks a public launch.
 
 ## Before this is public
 
-- [ ] **Send one real test request through the deployed form.** Cam set the Resend env vars
+- [x] **Send one real test request through the deployed form.** Cam set the Resend env vars
       on 2026-09-19; nothing in this repo can confirm they are correct. Submit the live form
       once and confirm the mail arrives. If it does not, the two usual causes are
       `CONTACT_FROM_EMAIL` still on `onboarding@resend.dev` (which only delivers to the
       address owning the Resend account) or `CONTACT_TO_EMAIL` pointing at a mailbox that
       does not exist. A 503 in the browser means the key is not reaching the function;
       a 502 means Resend rejected it, and the reason is in the Vercel function log.
-- [ ] **Confirm `hello@parteli.com` is a real, monitored mailbox.** It is `CONTACT_TO_EMAIL`'s
+- [x] **Confirm `ryder@parteli.ca` is a real, monitored mailbox.** It is `CONTACT_TO_EMAIL`'s
       default and the address the form shows as its fallback.
 - [ ] **Decide on indexing.** `src/app/layout.tsx` currently sets `robots: { index: false }`.
       That is deliberate for a pre-launch page — remove it when you want to be found.

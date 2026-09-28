@@ -4,18 +4,18 @@
  * Configuration (never committed; set in .env.local and in Vercel's env settings):
  *   RESEND_API_KEY      required. Without it the route returns 503 and the form
  *                       falls back to the mailto link rather than pretending to send.
- *   CONTACT_TO_EMAIL    where requests land. Defaults to hello@parteli.com.
+ *   CONTACT_TO_EMAIL    where requests land. Defaults to support@parteli.ca.
  *   CONTACT_FROM_EMAIL  a sender on a domain verified in Resend. Defaults to Resend's
  *                       onboarding@resend.dev, which can ONLY deliver to the address
  *                       that owns the Resend account — fine for testing, not for
- *                       production. Verify parteli.com in Resend and set this.
+ *                       production. Verify parteli.ca in Resend and set this.
  */
 
 import { NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
 
-const TO = process.env.CONTACT_TO_EMAIL || 'hello@parteli.com';
+const TO = process.env.CONTACT_TO_EMAIL || 'support@parteli.ca';
 const FROM = process.env.CONTACT_FROM_EMAIL || 'Parteli <onboarding@resend.dev>';
 
 /** Deliberately permissive: rejecting odd-but-valid addresses loses real leads. */

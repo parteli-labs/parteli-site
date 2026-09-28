@@ -48,7 +48,7 @@ export const cta = {
   heading: 'We are planning a small alpha',
   body: 'A short trial with a limited number of shops, run directly with us. If your shop is a fit, we would rather talk than send you a deck.',
   action: 'Request a walkthrough',
-  email: 'hello@parteli.com',
+  email: 'support@parteli.ca',
   note: 'No pricing page yet, because there is nothing to sign.',
 } as const;
 
