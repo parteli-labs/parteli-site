@@ -2,18 +2,8 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 const TITLE = 'Parteli - many riders, many dealers, one system';
-const DESCRIPTION =
-  'Parteli is being built for the work your shop already does: sourcing parts, tracking who is on the clock, getting the invoice out. We are planning a small alpha.';
+const DESCRIPTION = 'Parteli is being built to connect dealers\' shops, riders\' machines, and every part in between.';
 
-/**
- * `metadataBase` resolves the OG image to an absolute URL, which every scraper
- * requires. The production domain is the default rather than an env var: it is public,
- * not a secret, and a share card that silently breaks because a variable was never set
- * is a worse failure than a hardcoded string.
- *
- * NEXT_PUBLIC_SITE_URL still overrides it, which is what preview deploys want so their
- * cards point at the preview rather than at production.
- */
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
   (process.env.VERCEL_ENV === 'preview' && process.env.VERCEL_URL
@@ -25,8 +15,6 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   applicationName: 'Parteli',
-  // Pre-launch. Remove when the page should be findable — see TODO.md.
-  robots: { index: false, follow: false },
   openGraph: {
     type: 'website',
     siteName: 'Parteli',
