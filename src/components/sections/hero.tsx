@@ -17,9 +17,7 @@ export function Hero() {
           <span className={s.ln}><span>gets built.</span></span>
         </h1>
         <p className={s.lede}>
-          Parteli Labs is building the one system North America&apos;s powersports industry
-          runs on: the dealer&apos;s shop, the rider&apos;s machine, and every part in between.
-          And we own the database underneath it.
+          Parteli Labs builds and maintains cutting edge software solutions to North American dealerships + the riders they serve.
         </p>
         <div className={s.ctas}>
           <a className={ui.btn} href="#contact">

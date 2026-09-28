@@ -15,7 +15,7 @@ export function WhySwitch() {
   return (
     <section className={s.switch} id="switch">
       <div className={ui.wrap}>
-        <SectionHead eyebrow="Why dealers switch" title="The old system is old, clunky, and pricey.">
+        <SectionHead eyebrow="Why dealers switch" title="The old system is old, slow, clunky, and pricey.">
           Most powersports dealers run on legacy software they tolerate rather than like. Parteli
           DataCloud is built to replace it.
         </SectionHead>

@@ -23,10 +23,9 @@ export function Opportunity() {
       <div className={ui.wrap}>
         <SectionHead
           eyebrow="The opportunity"
-          title="A big, loyal market with no system built for it."
+          title="A big, loyal market with a fast system that keeps up."
         >
-          We&apos;re starting in Alberta, where the riding culture runs deep, and building for
-          every dealer across North America.
+          We&apos;re starting in Western Canada, where the riding culture runs deep, and building for every dealer across North America. This isn&apos;t another DMS, Parteli is the future.
         </SectionHead>
         <div className={s.stats}>
           {STATS.map((st) => (

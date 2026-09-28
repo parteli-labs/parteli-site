@@ -38,7 +38,7 @@ export function Problem() {
             </div>
             <div data-rv>
               <h3>For riders</h3>
-              <p>No easy way to know what&apos;s wrong, what it costs, or who can fix it.</p>
+              <p>Guess work when it comes to diagnostics, price, and who can fix it.</p>
             </div>
           </div>
         </div>

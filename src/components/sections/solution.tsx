@@ -1,4 +1,5 @@
 import { SectionHead, ui } from '@/components/ui';
+import { brand } from '@/content/site';
 
 import s from './solution.module.css';
 
@@ -60,7 +61,16 @@ function SystemDiagram() {
       <path className={`${s.flow} ${s.ring}`} d="M425 355 A190 190 0 0 1 95 355" />
       <path className={`${s.flow} ${s.ring}`} d="M95 355 A190 190 0 0 1 260 70" />
       <rect x="196" y="226" width="128" height="68" fill="var(--lime)" />
-      <text x="260" y="256" textAnchor="middle" className={s.core}>PARTELI</text>
+      {/* Wordmark is 1690 × 236; 110 wide, centred over "CORE DATABASE". */}
+      <image
+        href={brand.wordmark}
+        x="205"
+        y="239"
+        width="110"
+        height="15.4"
+        className={s.core}
+        aria-hidden="true"
+      />
       <text x="260" y="278" textAnchor="middle" className={s.coreSub}>CORE DATABASE</text>
       <g className={s.node} textAnchor="middle">
         <rect x="200" y="42" width="120" height="44" />

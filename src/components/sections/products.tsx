@@ -12,11 +12,11 @@ const DATACLOUD_FEATURES = [
 ];
 
 const RYDE_FEATURES = [
-  'AI symptom diagnostics',
+  'AI diagnostics',
   'Live parts pricing',
   'Best deal and shipping',
   'Parts + labour quotes',
-  'Book an install',
+  'Book a repair',
   'Sleds, PWC, ATV, UTV',
 ];
 
@@ -71,7 +71,7 @@ export function Products() {
 
         <article className={`${s.prod} ${s.solo}`}>
           <div className={s.copy} data-rv>
-            <span className={s.pill}><i />Pre-launch</span>
+            <span className={s.pill}><i />In deployment</span>
             <h3>Let&apos;s Ryde</h3>
             <div className={s.tag}>The Parteli rider app.</div>
             <p className={s.desc}>

@@ -35,13 +35,9 @@
   opacity: 0.5;
 }
 
+/* The wordmark flattened to ink, as on the light Mission section. */
 .core {
-  font-family: var(--display);
-  font-variation-settings: 'wdth' 125;
-  font-weight: 800;
-  font-size: 19px;
-  letter-spacing: 2.4px;
-  fill: var(--ink);
+  filter: brightness(0);
 }
 
 .coreSub {
