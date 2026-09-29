@@ -8,11 +8,9 @@ export function Crew() {
       <div className={ui.wrap}>
         <Eyebrow>The crew</Eyebrow>
         <p className={s.big} data-rv>
-          <span className={s.dim}>No bloated teams.</span>
+          <span className={s.dim}>One strategic team.</span>
           <br />
           <span className={s.dim}>No founder salaries.</span>
-          <br />
-          Just builders <span className={s.lime}>executing.</span>
         </p>
       </div>
     </section>

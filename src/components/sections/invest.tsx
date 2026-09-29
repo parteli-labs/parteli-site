@@ -2,10 +2,7 @@ import { Eyebrow, ui } from '@/components/ui';
 
 import s from './invest.module.css';
 
-/**
- * Shelved 2026-09-28: taken off the landing page; investor enquiries go to #contact.
- * Restore by rendering <Invest /> in src/app/page.tsx.
- */
+/** On the company page. */
 export function Invest() {
   return (
     <section className={s.invest} id="invest">
@@ -13,15 +10,14 @@ export function Invest() {
         <div>
           <Eyebrow tick="var(--red)">Join the Ryde</Eyebrow>
           <div className={s.raise} data-rv>
-            $2M<span>USD</span>
+            $2.7M<span>CAD</span>
           </div>
         </div>
         <div className={s.copy}>
-          <h2 data-rv>Back the system powersports runs on.</h2>
           <p data-rv>
-            Parteli Labs is taking on early investors in a $2M USD round to bring Parteli to market
-            with Alberta dealers and build toward every dealer in North America. We&apos;re a lean
-            team with no founder salaries, so capital goes into the product and the dealers.
+            Parteli Labs is taking on early investors in a mobilizing round to bring our product to
+            the North American market. We&apos;re a lean team without founder salaries, so capital
+            goes into the product and the dealerships we serve.
           </p>
           <div className={s.mailbox} data-rv>
             <a className={s.addr} href="mailto:ryder@parteli.ca?subject=Parteli%20Labs%20investment">

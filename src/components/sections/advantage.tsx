@@ -2,10 +2,7 @@ import { Eyebrow, ui } from '@/components/ui';
 
 import s from './advantage.module.css';
 
-/**
- * "We own the database." Shelved 2026-09-28. Restore by rendering <Advantage />
- * in src/app/page.tsx.
- */
+/** "We own the database." On the company page. */
 export function Advantage() {
   return (
     <section className={s.advantage} id="advantage">

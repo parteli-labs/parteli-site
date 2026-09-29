@@ -11,7 +11,8 @@
   border-bottom: 1px solid transparent;
 }
 
-.nav[data-solid] {
+.nav[data-solid],
+.nav[data-always-solid] {
   background: rgba(21, 21, 21, 0.86);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -54,6 +55,11 @@
 }
 
 .links a:hover {
+  opacity: 1;
+  color: var(--lime);
+}
+
+.links a[aria-current='page'] {
   opacity: 1;
   color: var(--lime);
 }

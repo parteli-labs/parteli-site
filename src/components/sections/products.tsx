@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { SectionHead, ui } from '@/components/ui';
 
 import s from './products.module.css';
@@ -27,14 +29,17 @@ const WORK_ORDER = [
   ['Rider notified', 'SENT', s.ok],
 ] as const;
 
-/** Parteli DataCloud with its work-order card, then Let's Ryde on its own row. */
-export function Products() {
+/** Parteli DataCloud with its work-order card. On the dealers (home) page. */
+export function DataCloud() {
   return (
-    <section className={s.products} id="products">
+    <section className={s.products} id="datacloud">
       <div className={ui.wrap}>
         <SectionHead eyebrow="What we’re building" title="Two products. One system underneath.">
-          Parteli DataCloud runs the dealership. The Let’s Ryde app puts the rider in touch with
-          it. Both are built on the same Parteli database.
+          Parteli DataCloud runs the dealership. The{' '}
+          <Link className={s.inlineLink} href="/lets-ryde">
+            Let’s Ryde app
+          </Link>{' '}
+          puts the rider in touch with it. Both are built on the same Parteli database.
         </SectionHead>
 
         <article className={s.prod}>
@@ -68,16 +73,24 @@ export function Products() {
             </div>
           </div>
         </article>
+      </div>
+    </section>
+  );
+}
 
+/** The Let's Ryde product block. On the riders page, under the phone mockup. */
+export function LetsRydeProduct() {
+  return (
+    <section className={s.products} id="features">
+      <div className={ui.wrap}>
         <article className={`${s.prod} ${s.solo}`}>
           <div className={s.copy} data-rv>
             <span className={s.pill}><i />In deployment</span>
-            <h3>Let&apos;s Ryde</h3>
-            <div className={s.tag}>The Parteli rider app.</div>
+            <h3>The Parteli ryder app.</h3>
             <p className={s.desc}>
-              For the rider. Tell it what your machine is doing, and it tells you what&apos;s
-              likely wrong, what part fixes it, where to get it for the best price, and which shop
-              can put it in.
+              Built by a Ryder, for riders. Using AI, Let&apos;s Ryde tells the user what&apos;s
+              likely wrong, what part fixes it, where to get it for the best price, and which shops
+              they can trust.
             </p>
             <ul className={s.feats}>
               {RYDE_FEATURES.map((f) => <li key={f}>{f}</li>)}

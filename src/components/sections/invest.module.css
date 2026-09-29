@@ -14,7 +14,8 @@
   font-family: var(--display);
   font-weight: 900;
   font-variation-settings: 'wdth' 125;
-  font-size: clamp(88px, 15vw, 250px);
+  /* "$2.7M" is about 3.7em wide; this keeps it inside its half of the grid. */
+  font-size: clamp(72px, 10.5vw, 150px);
   line-height: 0.8;
   letter-spacing: -0.04em;
   margin-top: 22px;
@@ -28,16 +29,6 @@
   color: var(--lime);
   margin-top: 0.5em;
   font-weight: 700;
-}
-
-.copy h2 {
-  font-weight: 800;
-  font-variation-settings: 'wdth' 104;
-  font-size: clamp(30px, 3.4vw, 52px);
-  line-height: 0.98;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-  margin-bottom: 22px;
 }
 
 .copy > p {

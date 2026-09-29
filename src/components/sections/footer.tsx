@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { Mark, ui } from '@/components/ui';
 
 import s from './footer.module.css';
@@ -14,16 +16,17 @@ export function Footer() {
         <div>
           <h4>Company</h4>
           <ul>
-            <li><a href="#mission">Mission</a></li>
-            <li><a href="#opportunity">Opportunity</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><Link href="/company#mission">Mission</Link></li>
+            <li><Link href="/company#opportunity">Opportunity</Link></li>
+            <li><Link href="/company#invest">Invest</Link></li>
+            <li><Link href="/#contact">Contact</Link></li>
           </ul>
         </div>
         <div>
           <h4>Products</h4>
           <ul>
-            <li><a href="#products">Parteli DataCloud</a></li>
-            <li><a href="#products">Let’s Ryde app</a></li>
+            <li><Link href="/#datacloud">Parteli DataCloud</Link></li>
+            <li><Link href="/lets-ryde">Let’s Ryde app</Link></li>
           </ul>
         </div>
         <div className={s.legal}>

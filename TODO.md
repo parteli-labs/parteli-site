@@ -35,11 +35,10 @@ Ordered roughly by what blocks a public launch.
       `https://www.parteli.ca` in code, so nothing needs setting for production. Paste the
       live URL into a link preview checker and confirm `og.png` loads. Preview deploys
       point at themselves automatically; `NEXT_PUBLIC_SITE_URL` overrides both if needed.
-- [ ] **Regenerate `public/og.png` if the headline or wordmark changes.** It is a static
-      1200×630 render, not generated at build time. The template is `tools/og-template.html`
-      — replace `WORDMARK_SRC` with a data URI of the wordmark, then screenshot it at
-      1200×630. Its line breaks are explicit so the lime phrase never splits, and its pack
-      mirrors the hero's.
+- [ ] **Regenerate `public/og.png` if the headline, hero photo or wordmark changes.** It is a
+      static 1200×630 render of the home hero, not generated at build time. The template is
+      `tools/og-template.html`: open it from `tools/` (its image paths are relative) and
+      screenshot it at exactly 1200×630. Re-rendered for the redesign on 2026-09-28.
 - [ ] Consider a spam/rate limit on `/api/walkthrough` beyond the honeypot if it gets
       scraped. Vercel's firewall or a simple IP throttle would do.
 

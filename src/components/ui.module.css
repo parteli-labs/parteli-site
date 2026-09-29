@@ -1,5 +1,10 @@
 /* Shared pieces. Tokens live on :root in globals.css. */
 
+/* Top offset for pages whose first section sits under the fixed nav. */
+.belowNav {
+  padding-top: calc(68px + env(safe-area-inset-top, 0px));
+}
+
 .wrap {
   max-width: var(--max);
   margin-inline: auto;

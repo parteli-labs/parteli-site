@@ -8,15 +8,12 @@ const STREAMS = [
   ['Per order', 'Parts sales', 'Parteli sells OEM and aftermarket parts directly, at the best available price and shipping.'],
 ] as const;
 
-/**
- * "Three ways we make money." Shelved 2026-09-28. Restore by rendering
- * <BusinessModel /> in src/app/page.tsx.
- */
+/** Revenue streams. On the company page. */
 export function BusinessModel() {
   return (
     <section className={s.model} id="model">
       <div className={ui.wrap}>
-        <SectionHead eyebrow="Business model" title="Three ways we make money.">
+        <SectionHead eyebrow="Business model" title="Software that moves for dealers’ demands.">
           Recurring revenue from dealers, plus revenue on every transaction that moves through the
           system.
         </SectionHead>

@@ -16,17 +16,15 @@ export function Contact() {
           Let&apos;s <span>connect.</span>
         </h2>
         <p data-rv>
-          Request a demo, or reach Ryder MacLeod, President &amp; CEO, directly about investing or
-          partnering.
+          Reach Ryder MacLeod (President &amp; CEO) directly to get onboarded or establish a
+          symbiotic partnership with your existing company.
         </p>
         <div className={s.formWrap}>
           <WalkthroughForm styles={formStyles} />
         </div>
         <p className={s.ask} data-rv>
           Run a powersports dealership? Join the founding dealer program at{' '}
-          <a href="https://parteli.ca" target="_blank" rel="noopener">
-            parteli.ca
-          </a>
+          <a href="mailto:support@parteli.ca">support@parteli.ca</a>
         </p>
       </div>
     </section>

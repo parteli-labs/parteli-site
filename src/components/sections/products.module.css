@@ -5,15 +5,21 @@
 .prod {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  border-top: 1px solid var(--line);
+  border-block: 1px solid var(--line);
 }
 
-.prod + .prod {
-  border-bottom: 1px solid var(--line);
+.inlineLink {
+  color: var(--snow);
+  text-decoration-color: var(--lime);
+  text-underline-offset: 4px;
 }
 
 .solo {
   grid-template-columns: 1fr;
+}
+
+.solo h3 {
+  color: var(--lime);
 }
 
 .copy {

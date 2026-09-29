@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { Arrow, ui } from '@/components/ui';
 
@@ -20,12 +21,12 @@ export function Hero() {
           Parteli Labs builds and maintains cutting edge software solutions to North American dealerships + the riders they serve.
         </p>
         <div className={s.ctas}>
-          <a className={ui.btn} href="#contact">
+          <Link className={ui.btn} href="/company#invest">
             Join the Ryde <Arrow />
-          </a>
-          <a className={`${ui.btn} ${ui.ghost}`} href="#problem">
+          </Link>
+          <Link className={`${ui.btn} ${ui.ghost}`} href="/company#opportunity">
             See the opportunity
-          </a>
+          </Link>
         </div>
       </div>
       <div className={s.photo} aria-hidden="true">

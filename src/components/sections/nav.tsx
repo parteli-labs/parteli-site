@@ -1,31 +1,41 @@
+import Link from 'next/link';
+
 import { Arrow, Mark, ui } from '@/components/ui';
 
 import s from './nav.module.css';
 
-const LINKS = [
-  ['#mission', 'Our mission'],
-  ['#opportunity', 'Opportunity'],
-  ['#products', 'Products'],
-] as const;
+export type Page = 'dealers' | 'riders' | 'company';
 
-/** Fixed top bar. PageEffects sets `data-solid` on it once the page scrolls. */
-export function Nav() {
+const LINKS: readonly [Page, string, string][] = [
+  ['dealers', '/', 'Dealers'],
+  ['riders', '/lets-ryde', 'Riders'],
+  ['company', '/company', 'Company'],
+];
+
+/**
+ * Fixed top bar. On the home page it starts transparent over the hero and
+ * PageEffects sets `data-solid` once the page scrolls; pages without a dark hero
+ * pass `solid` to keep it opaque from the start.
+ */
+export function Nav({ current, solid = false }: { current: Page; solid?: boolean }) {
   return (
-    <nav className={s.nav} id="nav" aria-label="Primary">
+    <nav className={s.nav} id="nav" aria-label="Primary" data-always-solid={solid || undefined}>
       <div className={`${ui.wrap} ${s.inner}`}>
-        <a className={s.brand} href="#top" aria-label="Parteli Labs home">
+        <Link className={s.brand} href="/" aria-label="Parteli Labs home">
           <Mark />
-        </a>
+        </Link>
         <ul className={s.links}>
-          {LINKS.map(([href, label]) => (
-            <li key={href}>
-              <a href={href}>{label}</a>
+          {LINKS.map(([page, href, label]) => (
+            <li key={page}>
+              <Link href={href} aria-current={page === current ? 'page' : undefined}>
+                {label}
+              </Link>
             </li>
           ))}
         </ul>
-        <a className={`${ui.btn} ${s.cta}`} href="#contact">
+        <Link className={`${ui.btn} ${s.cta}`} href="/#contact">
           Request a demo <Arrow />
-        </a>
+        </Link>
       </div>
     </nav>
   );
