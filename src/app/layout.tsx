@@ -25,7 +25,7 @@ const plex = IBM_Plex_Mono({
   display: 'swap',
 });
 
-const TITLE = 'Parteli - where the future of powersports gets built';
+const TITLE = 'Parteli - Where the future of powersports gets built';
 const DESCRIPTION = 'Parteli is being built to connect dealers\' shops, riders\' machines, and every part in between.';
 
 const SITE_URL =
