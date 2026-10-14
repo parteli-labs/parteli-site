@@ -34,7 +34,7 @@ export function Nav({ current, solid = false }: { current: Page; solid?: boolean
           ))}
         </ul>
         <Link className={`${ui.btn} ${s.cta}`} href="/#contact">
-          Request a demo <Arrow />
+          Get connected <Arrow />
         </Link>
       </div>
     </nav>

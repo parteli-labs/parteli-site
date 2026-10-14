@@ -15,10 +15,10 @@ export function Hero() {
           <span className={s.ln}><span>Where the</span></span>
           <span className={s.ln}><span>future of</span></span>
           <span className={s.ln}><span><em>powersports</em></span></span>
-          <span className={s.ln}><span>gets built.</span></span>
+          <span className={s.ln}><span>is built.</span></span>
         </h1>
         <p className={s.lede}>
-          Parteli Labs builds and maintains cutting edge software solutions to North American dealerships + the riders they serve.
+          Parteli Labs builds and maintains cutting edge software solutions for North American dealerships &amp; the riders they serve.
         </p>
         <div className={s.ctas}>
           <Link className={ui.btn} href="/company#invest">

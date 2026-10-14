@@ -15,10 +15,6 @@ export function Contact() {
         <h2 data-rv>
           Let&apos;s <span>connect.</span>
         </h2>
-        <p data-rv>
-          Reach Ryder MacLeod (President &amp; CEO) directly to get onboarded or establish a
-          symbiotic partnership with your existing company.
-        </p>
         <div className={s.formWrap}>
           <WalkthroughForm styles={formStyles} />
         </div>
